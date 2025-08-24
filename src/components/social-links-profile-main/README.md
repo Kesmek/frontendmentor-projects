@@ -32,7 +32,7 @@ Users should be able to:
 - Solution URL:
   [Solution](https.www.frontendmentor.io/solutions/social-links-profile-main-lY4Cj31a_c)
 - Live Site URL:
-  [https://social-links-profile.justin-scopelleti.workers.dev/](https://social-links-profile.justin-scopelleti.workers.dev/)
+  [https://frontendmentor-projects.pages.dev/projects/social-links-profile/](https://frontendmentor-projects.pages.dev/projects/social-links-profile/)
 
 ## My process
 
