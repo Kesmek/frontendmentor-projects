@@ -10,5 +10,15 @@
   },
   "dependencies": {
     "astro": "^5.13.3"
+  },
+  "devDependencies": {
+    "json-parse-better-errors": "^1.0.2",
+    "open-props": "^1.7.16",
+    "postcss-html": "^1.8.0",
+    "prettier-plugin-astro": "^0.14.1",
+    "stylelint": "^16.23.1",
+    "stylelint-config-html": "^1.1.0",
+    "stylelint-config-standard": "^39.0.0",
+    "stylelint-selector-bem-pattern": "^4.0.1"
   }
 }

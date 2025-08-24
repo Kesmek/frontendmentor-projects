@@ -1,0 +1,87 @@
+@layer tokens {
+  :root {
+    --color-brand: hsl(47, 88%, 63%);
+  }
+}
+
+@layer components {
+  .card {
+    --offset: 8px;
+    display: flex;
+    flex-direction: column;
+    max-inline-size: 400px;
+    margin-inline: var(--size-6);
+    background-color: var(--color-white);
+    padding: var(--size-4);
+    border-radius: 1.25rem;
+    border: 2px solid var(--color-black);
+    gap: var(--size-5);
+    box-shadow: var(--offset) var(--offset) var(--color-black);
+  }
+
+  .card__image {
+    max-inline-size: 100%;
+    inline-size: 100%;
+    border-radius: 0.75rem;
+  }
+
+  .card__tags {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .card__tag {
+    padding: 10px 12px;
+    color: var(--color-black);
+    text-box: trim-both cap alphabetic;
+    font-weight: bold;
+    font-size: 16px;
+    width: fit-content;
+    background-color: var(--color-brand);
+    border-radius: var(--radius-2);
+  }
+
+  .card__publish-date {
+    font-size: 14px;
+    font-weight: 800;
+  }
+
+  .card__title {
+    text-decoration: none;
+  }
+
+  .card__title h2 {
+    color: var(--color-black);
+    font-size: var(--font-size-4);
+    font-weight: bold;
+
+    &:hover {
+      color: var(--color-brand);
+    }
+  }
+
+  .card__description {
+    color: var(--color-neutral-500);
+    font-weight: 800;
+    font-size: 16px;
+    text-wrap: wrap;
+  }
+
+  .card__footer {
+    display: flex;
+    align-items: center;
+    gap: var(--size-2);
+  }
+
+  .card__avatar {
+    inline-size: var(--size-7);
+  }
+
+  .card__author-name {
+    text-align: center;
+    font-weight: bold;
+    font-size: var(--font-size-1);
+    text-box: trim-both cap alphabetic;
+  }
+}

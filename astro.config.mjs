@@ -1,5 +1,23 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from "astro/config";
 
 // https://astro.build/config
-export default defineConfig({});
+export default defineConfig({
+  image: {
+    layout: "full-width",
+  },
+  experimental: {
+    fonts: [
+      {
+        provider: fontProviders.google(),
+        name: "Figtree",
+        cssVariable: "--figtree",
+      },
+      {
+        provider: fontProviders.google(),
+        name: "Inter",
+        cssVariable: "--inter",
+      },
+    ],
+  },
+});
