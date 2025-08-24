@@ -30,7 +30,7 @@ Users should be able to:
 ### Links
 
 - Solution URL:
-  [Solution](https.www.frontendmentor.io/solutions/social-links-profile-main-lY4Cj31a_c)
+  [Solution](https://www.frontendmentor.io/solutions/social-links-profile-sWV-F4DhXc)
 - Live Site URL:
   [https://frontendmentor-projects.pages.dev/projects/social-links-profile/](https://frontendmentor-projects.pages.dev/projects/social-links-profile/)
 
