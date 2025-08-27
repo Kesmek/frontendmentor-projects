@@ -1,6 +1,9 @@
 # Front-end Mentor - Recipe page solution
 
-This is a solution to the [Recipe page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/recipe-page-KiTsR8QQKm). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+This is a solution to the
+[Recipe page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/recipe-page-KiTsR8QQKm).
+Frontend Mentor challenges help you improve your coding skills by building
+realistic projects.
 
 ## Table of contents
 
@@ -24,12 +27,14 @@ Users should be able to:
 
 ### Screenshot
 
-![](./design/desktop-design.jpg)
+![desktop design](./desktop-design.jpg) ![mobile design](./mobile-design.jpg)
 
 ### Links
 
-- Solution URL: [Solution](https://www.frontendmentor.io/solutions/recipe-page-solution-xxxxxxxx)
-- Live Site URL: [https://recipe-page.justin-scopelleti.workers.dev](https://recipe-page.justin-scopelleti.workers.dev)
+- Solution URL:
+  [Solution](https://www.frontendmentor.io/solutions/recipe-page-solution-xxxxxxxx)
+- Live Site URL:
+  [https://frontendmentor-projects.pages.dev/](https://frontendmentor-projects.pages.dev/)
 
 ## My process
 
@@ -43,7 +48,10 @@ Users should be able to:
 
 ### What I learned
 
-I got more practice with styling HTML tables. Using `border-collapse: collapse;` is key to getting clean borders. I also learned how to effectively style table rows and cells individually, for example, by applying a border only to the bottom of each cell to create a clean, modern-looking table.
+I got more practice with styling HTML tables. Using `border-collapse: collapse;`
+is key to getting clean borders. I also learned how to effectively style table
+rows and cells individually, for example, by applying a border only to the
+bottom of each cell to create a clean, modern-looking table.
 
 ```css
 .recipe__table {
