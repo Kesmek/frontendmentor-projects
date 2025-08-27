@@ -25,3 +25,84 @@
     background-color: var(--color-background);
   }
 }
+
+/* Homepage Styles */
+.homepage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--size-10);
+  padding: var(--size-10);
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.homepage__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-4);
+}
+
+.homepage__title {
+  font-size: var(--font-size-7);
+  font-weight: var(--font-weight-8);
+}
+
+.homepage__subtitle {
+  font-size: var(--font-size-3);
+  color: var(--recipe-color-stone-600);
+}
+
+.homepage__gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--size-8);
+  inline-size: 100%;
+}
+
+.challenge-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-4);
+  border-radius: var(--radius-3);
+  padding: var(--size-4);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease-in-out;
+  max-inline-size: var(--size-16);
+  background-color: var(--color-stone-100);
+  box-shadow: 0 0 5px var(--color-neutral-500);
+  transition-duration: var(--duration-quick-2);
+  transition-property: all;
+}
+
+.challenge-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px var(--color-neutral-500);
+}
+
+.challenge-card__image {
+  inline-size: 100%;
+  border-radius: var(--radius-3);
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: top;
+  height: auto;
+  border: var(--border-size-1) solid var(--color-neutral-500);
+}
+
+.challenge-card__title {
+  font-size: var(--font-size-4);
+  font-weight: var(--font-weight-6);
+}
+
+.homepage__footer {
+  margin-block-start: var(--size-10);
+  font-size: var(--font-size-2);
+}
+
+.homepage__footer a {
+  color: var(--recipe-color-brown-800);
+  text-decoration: underline;
+}
+

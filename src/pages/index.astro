@@ -1,16 +1,62 @@
 ---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import blogPreviewCardImage from "@components/blog-preview-card/result-screenshot.png";
+import recipePageImage from "@components/recipe-page/desktop-design.png";
+import socialLinksProfileImage from "@components/social-links-profile-main/preview.png";
+import { Image } from "astro:assets";
 
+const challenges = [
+  {
+    title: "Blog Preview Card",
+    href: "/projects/blog-preview-card",
+    image: blogPreviewCardImage,
+  },
+  {
+    title: "Recipe Page",
+    href: "/projects/recipe-page",
+    image: recipePageImage,
+  },
+  {
+    title: "Social Links Profile",
+    href: "/projects/social-links-profile",
+    image: socialLinksProfileImage,
+  },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="Frontend Mentor Solutions">
+  <div class="homepage">
+    <header class="homepage__header">
+      <h1 class="homepage__title">Frontend Mentor Challenges</h1>
+      <p class="homepage__subtitle">
+        A collection of my solutions to challenges from Frontend Mentor, built
+        with Astro.
+      </p>
+    </header>
+
+    <section class="homepage__gallery">
+      {
+        challenges.map((challenge) => (
+          <a href={challenge.href} class="challenge-card">
+            <Image
+              src={challenge.image}
+              alt={`Screenshot of the ${challenge.title} challenge`}
+              class="challenge-card__image"
+            />
+            <h2 class="challenge-card__title">{challenge.title}</h2>
+          </a>
+        ))
+      }
+    </section>
+
+    <footer class="homepage__footer">
+      <p>
+        Find me on <a href="https://www.frontendmentor.io/profile/Kesmek"
+          >Frontend Mentor</a
+        > or
+        <a href="https://github.com/kesmek">GitHub</a>.
+      </p>
+    </footer>
+  </div>
+</BaseLayout>
+

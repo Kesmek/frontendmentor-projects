@@ -1,43 +1,48 @@
-# Astro Starter Kit: Minimal
+# Frontend Mentor Challenges
 
-```sh
-npm create astro@latest -- --template minimal
-```
+This repository contains my solutions to various challenges from [Frontend Mentor](https://www.frontendmentor.io). Each solution is a separate component within this Astro project.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Completed Challenges
 
-## 🚀 Project Structure
+Here is a list of the challenges I have completed so far:
 
-Inside of your Astro project, you'll see the following folders and files:
+-   **Blog Preview Card**
+    -   [Live Demo](/projects/blog-preview-card)
+    -   [Challenge README](./src/components/blog-preview-card/README.md)
+-   **Recipe Page**
+    -   [Live Demo](/projects/recipe-page)
+    -   [Challenge README](./src/components/recipe-page/README.md)
+-   **Social Links Profile**
+    -   [Live Demo](/projects/social-links-profile)
+    -   [Challenge README](./src/components/social-links-profile-main/README.md)
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## Built With
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+-   [Astro](https://astro.build/) - The web framework for building content-driven websites.
+-   [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*)
+-   [Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox)
+-   [Mobile-first workflow](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Responsive/Mobile_first)
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Getting Started
 
-Any static assets, like images, can be placed in the `public/` directory.
+To get a local copy up and running, follow these simple steps.
 
-## 🧞 Commands
+### Prerequisites
 
-All commands are run from the root of the project, from a terminal:
+You need to have [Bun](https://bun.sh/) installed.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+### Installation & Running
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+1.  Clone the repo
+    ```sh
+    git clone https://github.com/your_username/frontendmentor.git
+    ```
+2.  Install dependencies
+    ```sh
+    bun install
+    ```
+3.  Start the development server
+    ```sh
+    bun dev
+    ```
+    The application will be available at `http://localhost:4321`.
