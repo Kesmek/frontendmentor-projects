@@ -1,5 +1,13 @@
 ---
+import BaseLayout from "@layouts/BaseLayout.astro";
 import RecipePageComponent from "@components/recipe-page/index.astro";
+import { Font } from "astro:assets";
+import favicon from "@components/recipe-page/assets/images/favicon-32x32.png";
 ---
 
-<RecipePageComponent />
+<BaseLayout title="Frontend Mentor | Recipe page" favicon={favicon.src}>
+  <Font slot="head" cssVariable="--young-serif" />
+  <Font slot="head" cssVariable="--outfit" />
+  <RecipePageComponent />
+</BaseLayout>
+
