@@ -78,13 +78,22 @@
     table-layout: fixed;
   }
 
+  .recipe__table-row {
+    &:hover {
+      /* stylelint-disable-next-line plugin/selector-bem-pattern */
+      --table-background-color: var(--recipe-color-stone-100);
+    }
+  }
+
   .recipe__table-cell,
   .recipe__table-header {
     border-bottom: var(--border-size-1) solid var(--color-black);
     padding-block: var(--size-3);
+    background-color: var(--table-background-color);
     font-weight: var(--font-weight-4);
     text-align: start;
     inline-size: 50%;
+    transition-duration: var(--duration-quick-1);
   }
 
   .recipe__table-cell {
