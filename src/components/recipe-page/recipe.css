@@ -7,17 +7,12 @@
     --recipe-color-brown-800: hsl(14deg 45% 36%);
     --recipe-color-rose-800: hsl(332deg 51% 32%);
     --recipe-color-rose-50: hsl(330deg 100% 98%);
+    /* stylelint-disable-next-line plugin/selector-bem-pattern */
+    --color-background: var(--recipe-color-stone-100);
   }
 }
 
 @layer components {
-  /* stylelint-disable-next-line plugin/selector-bem-pattern */
-  main {
-    background-color: var(--recipe-color-stone-100);
-    padding: var(--size-10);
-    inline-size: 100%;
-  }
-
   .recipe {
     max-inline-size: var(--size-17);
     background-color: var(--color-white);
@@ -28,7 +23,7 @@
     gap: var(--size-7);
     font-family: var(--outfit);
     color: var(--recipe-color-stone-600);
-    margin: 0 auto;
+    margin: var(--size-10) auto;
   }
 
   .recipe__image {
@@ -106,24 +101,21 @@
     border: none;
   }
 
-  @media (width < 500px) {
+  @media (width < 50rem) {
     /* stylelint-disable-next-line plugin/selector-bem-pattern */
-    main {
-      padding: 0;
+    .recipe > * {
+      margin-inline: var(--size-6);
     }
 
     .recipe__image {
       border-radius: 0;
+      margin-inline: 0;
     }
 
     .recipe {
       border-radius: 0;
       padding: 0;
-    }
-
-    /* stylelint-disable-next-line plugin/selector-bem-pattern */
-    .recipe > *:nth-child(n + 2) {
-      margin-inline: var(--size-6);
+      margin-block: 0;
     }
   }
 }
