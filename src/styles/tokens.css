@@ -250,5 +250,9 @@
 
     --text: light-dark(var(--color-black), var(--color-white));
     --text-dark: light-dark(var(--color-white), var(--color-black));
+
+    --size-16: 40rem;
+    --size-17: 50rem;
+    --size-18: 60rem;
   }
 }
