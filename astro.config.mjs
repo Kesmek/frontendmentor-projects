@@ -18,6 +18,17 @@ export default defineConfig({
         name: "Inter",
         cssVariable: "--inter",
       },
+      {
+        provider: fontProviders.google(),
+        name: "Young Serif",
+        cssVariable: "--young-serif",
+      },
+      {
+        provider: fontProviders.google(),
+        name: "Outfit",
+        cssVariable: "--outfit",
+        weights: [400, 600, 700],
+      },
     ],
   },
 });
