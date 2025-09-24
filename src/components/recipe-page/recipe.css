@@ -54,11 +54,15 @@
   }
 
   .recipe__list {
-    list-style-position: inside;
     display: flex;
     flex-direction: column;
     gap: var(--size-5);
-    margin-inline-start: var(--size-2);
+    margin-inline-start: var(--size-5);
+  }
+
+  /* stylelint-disable-next-line plugin/selector-bem-pattern */
+  .recipe__list > li {
+    padding-inline-start: var(--size-3);
   }
 
   /* stylelint-disable-next-line plugin/selector-bem-pattern */
@@ -125,6 +129,14 @@
       border-radius: 0;
       padding: 0;
       margin-block: 0;
+    }
+
+    .recipe__list {
+      margin-inline: var(--size-8);
+    }
+
+    .recipe__times .recipe__list {
+      margin-inline: var(--size-6);
     }
   }
 }

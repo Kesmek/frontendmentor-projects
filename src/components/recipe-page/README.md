@@ -27,7 +27,7 @@ Users should be able to:
 
 ### Screenshot
 
-![desktop design](./desktop-design.jpg) ![mobile design](./mobile-design.jpg)
+![desktop design](./desktop-design.png) ![mobile design](./mobile-design.png)
 
 ### Links
 
@@ -42,7 +42,7 @@ Users should be able to:
 
 - Semantic HTML5 markup
 - CSS custom properties
-- Flexbox
+- Table
 - Astro
 - Mobile-first workflow
 
