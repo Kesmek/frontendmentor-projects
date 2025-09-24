@@ -38,12 +38,12 @@ const challenges = [
       {
         challenges.map((challenge) => (
           <a href={challenge.href} class="challenge-card">
+            <h2 class="challenge-card__title">{challenge.title}</h2>
             <Image
               src={challenge.image}
               alt={`Screenshot of the ${challenge.title} challenge`}
               class="challenge-card__image"
             />
-            <h2 class="challenge-card__title">{challenge.title}</h2>
           </a>
         ))
       }
@@ -59,4 +59,3 @@ const challenges = [
     </footer>
   </div>
 </BaseLayout>
-

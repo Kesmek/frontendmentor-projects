@@ -1,12 +1,15 @@
 @layer tokens {
   :root {
-    --color-brand: hsl(47, 88%, 63%);
+    --card-color-brand: hsl(47deg 88% 63%);
+    /* stylelint-disable-next-line plugin/selector-bem-pattern */
+    --color-background: var(--card-color-brand);
   }
 }
 
 @layer components {
   .card {
-    --offset: 8px;
+    --card-offset: 8px;
+
     display: flex;
     flex-direction: column;
     max-inline-size: 400px;
@@ -16,7 +19,7 @@
     border-radius: 1.25rem;
     border: 2px solid var(--color-black);
     gap: var(--size-5);
-    box-shadow: var(--offset) var(--offset) var(--color-black);
+    box-shadow: var(--card-offset) var(--card-offset) var(--color-black);
   }
 
   .card__image {
@@ -38,7 +41,7 @@
     font-weight: bold;
     font-size: 16px;
     width: fit-content;
-    background-color: var(--color-brand);
+    background-color: var(--card-color-brand);
     border-radius: var(--radius-2);
   }
 
@@ -51,13 +54,15 @@
     text-decoration: none;
   }
 
+  /* stylelint-disable-next-line plugin/selector-bem-pattern */
   .card__title h2 {
     color: var(--color-black);
     font-size: var(--font-size-4);
     font-weight: bold;
 
+    /* stylelint-disable-next-line plugin/selector-bem-pattern */
     &:hover {
-      color: var(--color-brand);
+      color: var(--card-color-brand);
     }
   }
 
