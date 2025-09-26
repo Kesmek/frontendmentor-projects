@@ -1,5 +1,13 @@
 ---
-import SocialLinksProfileComponent from "@components/social-links-profile-main/index.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import SocialLinksProfileComponent from "@components/social-links-profile/index.astro";
+import { Font } from "astro:assets";
 ---
 
-<SocialLinksProfileComponent />
+<BaseLayout
+  title="Frontend Mentor | Social links profile"
+  favicon="/frontendmentor-favicon.svg"
+>
+  <Font slot="head" cssVariable="--inter" preload />
+  <SocialLinksProfileComponent />
+</BaseLayout>

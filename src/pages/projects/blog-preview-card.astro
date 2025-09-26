@@ -1,5 +1,13 @@
 ---
+import BaseLayout from "@layouts/BaseLayout.astro";
 import BlogPreviewCardComponent from "@components/blog-preview-card/index.astro";
+import { Font } from "astro:assets";
 ---
 
-<BlogPreviewCardComponent />
+<BaseLayout
+  title="Frontend Mentor | Blog preview card"
+  favicon="/frontendmentor-favicon.svg"
+>
+  <Font slot={"head"} cssVariable="--figtree" preload />
+  <BlogPreviewCardComponent />
+</BaseLayout>

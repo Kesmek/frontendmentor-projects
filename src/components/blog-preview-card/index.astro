@@ -1,39 +1,31 @@
 ---
-import { Font, Image } from "astro:assets";
+import { Image } from "astro:assets";
 import "./card.css";
-import BaseLayout from "@layouts/BaseLayout.astro";
 
-import favicon from "./assets/images/favicon.png";
 import illustrationArticle from "./assets/images/illustration-article.svg";
 import imageAvatar from "./assets/images/image-avatar.webp";
 ---
 
-<BaseLayout title="Frontend Mentor | Blog preview card">
-  <Fragment slot={"head"}>
-    <link rel="icon" type="image/png" sizes="32x32" href={favicon.src} />
-    <Font cssVariable="--figtree" preload />
-  </Fragment>
-  <article class="card">
-    <Image
-      src={illustrationArticle}
-      alt="card illustration"
-      class="card__image"
-    />
-    <ul class="card__tags">
-      <li class="card__tag">Learning</li>
-    </ul>
-    <p class="card__publish-date">
-      Published
-      <time datetime="2023-12-21">21 Dec 2023</time>
-    </p>
-    <a href="#" class="card__title"><h2>HTML & CSS foundations</h2></a>
-    <p class="card__description">
-      These languages are the backbone of every website, defining structure,
-      content, and presentation.
-    </p>
-    <footer class="card__footer">
-      <Image src={imageAvatar} alt="author" class="card__avatar" />
-      <p class="card__author-name">Greg Hooper</p>
-    </footer>
-  </article>
-</BaseLayout>
+<article class="card">
+  <Image
+    src={illustrationArticle}
+    alt="card illustration"
+    class="card__image"
+  />
+  <ul class="card__tags">
+    <li class="card__tag">Learning</li>
+  </ul>
+  <p class="card__publish-date">
+    Published
+    <time datetime="2023-12-21">21 Dec 2023</time>
+  </p>
+  <a href="#" class="card__title"><h2>HTML & CSS foundations</h2></a>
+  <p class="card__description">
+    These languages are the backbone of every website, defining structure,
+    content, and presentation.
+  </p>
+  <footer class="card__footer">
+    <Image src={imageAvatar} alt="author" class="card__avatar" />
+    <p class="card__author-name">Greg Hooper</p>
+  </footer>
+</article>
