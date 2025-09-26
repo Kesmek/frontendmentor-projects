@@ -66,6 +66,7 @@
     padding: calc(var(--size-2) + var(--size-1));
     border-radius: calc(var(--radius-2) + var(--radius-1));
     border: none;
+    font-weight: var(--font-weight-7);
 
     &:hover {
       cursor: pointer;
