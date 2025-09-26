@@ -29,7 +29,7 @@ Users should be able to:
 
 ### Screenshot
 
-![screenshot](./screenshot.png)
+![screenshot](./preview.png)
 
 ### Links
 
@@ -81,4 +81,3 @@ Flexbox. I also want to explore more of the features of Astro.
 
 - Website - [Justin](https://github.com/Kesmek/)
 - Frontend Mentor - [@Kesmek](https://www.frontendmentor.io/profile/Kesmek)
-
