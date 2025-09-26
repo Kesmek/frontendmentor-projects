@@ -1,0 +1,14 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import ProductPreviewCardComponent from "@components/product-preview-card/index.astro";
+import { Font } from "astro:assets";
+---
+
+<BaseLayout
+  title="Frontend Mentor | Product preview card component"
+  favicon="/frontendmentor-favicon.svg"
+>
+  <Font slot={"head"} cssVariable="--montserrat" preload />
+  <Font slot={"head"} cssVariable="--fraunces" preload />
+  <ProductPreviewCardComponent />
+</BaseLayout>

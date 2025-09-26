@@ -1,0 +1,30 @@
+---
+import "./card.css";
+import { Picture } from "astro:assets";
+import product from "./assets/image-product-desktop.jpg";
+import CartIcon from "./assets/icon-cart.svg";
+---
+
+<article class="card">
+  <Picture
+    src={product}
+    alt={"cologne bottle surrounded by leaves"}
+    class={"card__image"}
+  />
+  <div class="card__content">
+    <p class="card__category">Perfume</p>
+    <h2 class="card__title">Gabrielle Essence Eau De Parfum</h2>
+    <p class="card__description">
+      A floral, solar and voluptuous interpretation composed by Olivier Polge,
+      Perfumer-Creator for the House of CHANEL.
+    </p>
+    <div class="card__prices">
+      <span class="card__price card__price--new">$149.99</span>
+      <s class="card__price card__price--old">$169.99</s>
+    </div>
+    <button type="button" class="card__button">
+      <CartIcon />
+      Add to cart
+    </button>
+  </div>
+</article>

@@ -29,6 +29,18 @@ export default defineConfig({
         cssVariable: "--outfit",
         weights: [400, 600, 700],
       },
+      {
+        provider: fontProviders.google(),
+        name: "Montserrat",
+        cssVariable: "--montserrat",
+        weights: [500, 700],
+      },
+      {
+        provider: fontProviders.google(),
+        name: "Fraunces",
+        cssVariable: "--fraunces",
+        weights: [700],
+      },
     ],
   },
 });
