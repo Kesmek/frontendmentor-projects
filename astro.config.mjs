@@ -41,6 +41,12 @@ export default defineConfig({
         cssVariable: "--fraunces",
         weights: [700],
       },
+      {
+        provider: fontProviders.google(),
+        name: "Poppins",
+        cssVariable: "--poppins",
+        weights: [200, 400, 600],
+      },
     ],
   },
 });

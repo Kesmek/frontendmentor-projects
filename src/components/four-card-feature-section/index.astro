@@ -1,0 +1,49 @@
+---
+import "./feature-section.css";
+import supervisor from "./assets/icon-supervisor.svg";
+import teamBuilder from "./assets/icon-team-builder.svg";
+import karma from "./assets/icon-karma.svg";
+import calculator from "./assets/icon-calculator.svg";
+import Card from "./card.astro";
+---
+
+<section class="feature-section">
+  <h1 class="feature-section__title">
+    Reliable, efficient delivery <br />
+    <b>Powered by Technology</b>
+  </h1>
+  <p class="feature-section__description">
+    Our Artificial Intelligence powered tools use millions of project data
+    points to ensure that your project is successful
+  </p>
+  <section class="feature-section__card-list">
+    <Card
+      title="Supervisor"
+      description="Monitors activity to identify project roadblocks"
+      imageSrc={supervisor}
+      imageAlt="magnifying glass with an eye inside it"
+      class="feature-section__card"
+    />
+    <Card
+      title="Team Builder"
+      description="Scans our talent network to create the optimal team for your project"
+      imageSrc={teamBuilder}
+      imageAlt="house in front of a website skeleton"
+      class="feature-section__card"
+    />
+    <Card
+      title="Karma"
+      description="Regularly evaluates our talent to ensure quality"
+      imageSrc={karma}
+      imageAlt="illuminated, animated lightbulb"
+      class="feature-section__card"
+    />
+    <Card
+      title="Calculator"
+      description="Uses data from past projects to provide better delivery estimates"
+      imageSrc={calculator}
+      imageAlt="computer monitor with statistics skeleton"
+      class="feature-section__card"
+    />
+  </section>
+</section>

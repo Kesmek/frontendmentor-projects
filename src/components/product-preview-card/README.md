@@ -33,7 +33,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL:
+  [https://www.frontendmentor.io/solutions/product-preview-card-CrXkNgwJ8L](https://www.frontendmentor.io/solutions/product-preview-card-CrXkNgwJ8L)
 - Live Site URL:
   [https://frontendmentor-projects.pages.dev/](https://frontendmentor-projects.pages.dev/)
 
