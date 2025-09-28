@@ -1,6 +1,6 @@
 @layer components {
   .card {
-    inline-size: calc(var(--size-14) + var(--size-9));
+    inline-size: 100%;
     border-block-start: var(--size-1) solid var(--accent-color);
     border-radius: var(--radius-2);
     padding: var(--size-7);

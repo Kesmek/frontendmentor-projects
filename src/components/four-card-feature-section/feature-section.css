@@ -16,10 +16,11 @@
     justify-items: center;
     block-size: 100%;
     inline-size: 100%;
-    padding: var(--size-5);
+    padding: var(--size-10) var(--size-6);
     color: var(--feature-section-color-grey-500);
     display: grid;
     gap: var(--size-5);
+    container-type: inline-size;
   }
 
   .feature-section__title {
@@ -34,6 +35,7 @@
   }
 
   .feature-section__description {
+    font-size: var(--font-size-2);
     max-inline-size: 55ch;
     text-align: center;
   }
@@ -42,17 +44,17 @@
     display: grid;
     align-items: center;
     justify-content: center;
+    margin-block-start: var(--size-8);
     gap: var(--size-7);
+    inline-size: 100%;
+    grid-template-columns: repeat(
+      auto-fit,
+      min(calc(var(--size-14) + var(--size-9)), 100%)
+    );
 
-    @media (width > 44rem) {
-      grid-template-columns: repeat(auto-fit, minmax(var(--size-14), 1fr));
-      grid-template-rows: 1fr 1fr;
+    @container (width > 75rem) {
       grid-auto-flow: column;
-    }
-
-    @media (width > 80rem) {
-      grid-template-columns: repeat(3, calc(var(--size-14) + var(--size-10)));
-      grid-template-rows: 1fr 1fr;
+      grid-template-columns: repeat(3, calc(var(--size-14) + var(--size-9)));
     }
   }
 
@@ -67,7 +69,7 @@
       --accent-color: var(--feature-section-color-cyan);
     }
 
-    @media (width > 60rem) {
+    @container (width > 75rem) {
       &:first-child,
       &:last-child {
         grid-row: span 2;
@@ -88,5 +90,15 @@
       /* stylelint-disable-next-line plugin/selector-bem-pattern */
       --accent-color: var(--feature-section-color-orange);
     }
+  }
+
+  /* stylelint-disable-next-line plugin/selector-bem-pattern */
+  .grid {
+    display: grid;
+    grid-auto-columns: calc(var(--size-14) + var(--size-9));
+    grid-auto-flow: column;
+    grid-template-rows: repeat(auto-fit, 100%);
+    gap: var(--size-7);
+    inline-size: 100%;
   }
 }
