@@ -12,7 +12,6 @@
   main {
     inline-size: 100%;
     min-block-size: 100dvh;
-    display: flow-root;
     align-content: center;
     justify-items: center;
     background-color: var(--color-background);
