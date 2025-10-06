@@ -1,0 +1,13 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import TestimonialsComponent from "@components/testimonials-grid-section/index.astro";
+import { Font } from "astro:assets";
+---
+
+<BaseLayout
+  title="Frontend Mentor | Social links profile"
+  favicon="/frontendmentor-favicon.svg"
+>
+  <Font slot="head" cssVariable="--barlow-semi-condensed" preload />
+  <TestimonialsComponent />
+</BaseLayout>
