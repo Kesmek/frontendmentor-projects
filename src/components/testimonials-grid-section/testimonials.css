@@ -1,0 +1,75 @@
+@layer tokens {
+  :root {
+    --testimonials-color-purple-50: hsl(260deg 100% 95%);
+    --testimonials-color-purple-300: hsl(264deg 82% 80%);
+    --testimonials-color-purple-500: hsl(263deg 55% 52%);
+    --testimonials-color-grey-100: hsl(214deg 17% 92%);
+    --testimonials-color-grey-200: hsl(0deg 0% 81%);
+    --testimonials-color-grey-400: hsl(224deg 10% 45%);
+    --testimonials-color-grey-500: hsl(217deg 19% 35%);
+    --testimonials-color-blue-800: hsl(219deg 29% 14%);
+    --testimonials-color-black: hsl(0deg 0% 7%);
+    --testimonials-font-size-body: 13px;
+
+    /* stylelint-disable-next-line plugin/selector-bem-pattern */
+    --color-background: var(--testimonials-color-grey-100);
+  }
+}
+
+@layer components {
+  .testimonials {
+    font-size: var(--testimonials-font-size-body);
+    font-family: var(--barlow-semi-condensed);
+    font-weight: var(--font-weight-5);
+    padding: var(--size-5);
+    display: grid;
+    grid-template-columns: 1fr;
+    max-inline-size: calc(var(--size-16) * 2);
+    gap: var(--size-7);
+
+    @media (width > 65rem) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .testimonials__card--daniel {
+    /* stylelint-disable-next-line plugin/selector-bem-pattern */
+    --image-bg-color: var(--testimonials-color-purple-300);
+
+    background-color: var(--testimonials-color-purple-500);
+    color: var(--testimonials-color-purple-50);
+
+    &::before {
+      content: url("./assets/bg-pattern-quotation.svg");
+      position: absolute;
+      right: var(--size-8);
+      top: calc(var(--size-8) * -1);
+      translate: 0 50%;
+      opacity: 0.4;
+    }
+  }
+
+  .testimonials__card--jonathan {
+    background-color: var(--testimonials-color-grey-500);
+    color: var(--testimonials-color-grey-100);
+  }
+
+  .testimonials__card--patrick {
+    /* stylelint-disable-next-line plugin/selector-bem-pattern */
+    --image-bg-color: var(--testimonials-color-purple-500);
+
+    background-color: var(--testimonials-color-blue-800);
+    color: var(--testimonials-color-grey-200);
+  }
+
+  @media (width > 65rem) {
+    .testimonials__card--daniel,
+    .testimonials__card--patrick {
+      grid-column: span 2;
+    }
+
+    .testimonials__card--kira {
+      grid-row: span 2;
+    }
+  }
+}

@@ -1,0 +1,30 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+import "./card.css";
+
+interface Props {
+  imageSrc: ImageMetadata;
+  imageAlt: string;
+  author: string;
+  position: string;
+  highlight: string;
+  quote: string;
+  class?: string;
+}
+const props = Astro.props;
+---
+
+<figure class:list={["card", props.class]}>
+  <figcaption class="card__caption">
+    <Image src={props.imageSrc} alt={props.imageAlt} class="card__image" />
+    <div class="card__attributions">
+      <p class="card__author">{props.author}</p>
+      <p class="card__author-position">{props.position}</p>
+    </div>
+  </figcaption>
+  <blockquote class="card__blockquote">
+    <p class="card__quote--highlighted">{props.highlight}</p>
+    <p class="card__quote">{props.quote}</p>
+  </blockquote>
+</figure>

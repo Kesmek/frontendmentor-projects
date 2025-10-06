@@ -47,6 +47,12 @@ export default defineConfig({
         cssVariable: "--poppins",
         weights: [200, 400, 600],
       },
+      {
+        provider: fontProviders.google(),
+        name: "Barlow Semi Condensed",
+        cssVariable: "--barlow-semi-condensed",
+        weights: [500, 600],
+      },
     ],
   },
 });
