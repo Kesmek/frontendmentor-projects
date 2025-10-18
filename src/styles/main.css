@@ -58,9 +58,8 @@
 .challenge-card {
   display: flex;
   flex-direction: column;
-  gap: var(--size-4);
+  justify-content: space-between;
   border-radius: var(--radius-3);
-  padding-block-start: var(--size-4);
   text-decoration: none;
   color: inherit;
   transition: transform 0.2s ease-in-out;
@@ -90,6 +89,12 @@
   font-size: var(--font-size-4);
   font-weight: var(--font-weight-6);
   text-transform: capitalize;
+  padding-inline: var(--size-3);
+  padding-block: var(--size-3);
+  block-size: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .homepage__footer {
