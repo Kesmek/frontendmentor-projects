@@ -21,6 +21,11 @@ import "../styles/main.css";
     }
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <script type="module" is:inline>
+      if (!("anchorName" in document.documentElement.style)) {
+        import("https://unpkg.com/@oddbird/css-anchor-positioning");
+      }
+    </script>
     <slot name="head" />
     <title>{title}</title>
   </head>
