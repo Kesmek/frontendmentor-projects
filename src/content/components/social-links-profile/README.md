@@ -1,3 +1,8 @@
+---
+title: Social Links Profile
+image: ./preview.png
+---
+
 # Frontend Mentor - Social links profile solution
 
 This is a solution to the

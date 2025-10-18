@@ -1,0 +1,92 @@
+---
+import { Image } from "astro:assets";
+import avatar from "./assets/avatar-michelle.jpg";
+import heroImg from "./assets/drawers.jpg";
+import FbSvg from "./assets/icon-facebook.svg";
+import XSvg from "./assets/icon-twitter.svg";
+import PinterestSvg from "./assets/icon-pinterest.svg";
+import ShareSvg from "./assets/icon-share.svg";
+import "./article.css";
+---
+
+<article class="article">
+  <Image
+    src={heroImg}
+    alt={"green drawers with a vase and picture frames on top"}
+    class="article__hero"
+  />
+  <div class="article__content">
+    <h2 class="article__title">
+      Shift the overall look and feel by adding these wonderful touches to
+      furniture in your home
+    </h2>
+    <p class="article__text">
+      Ever been in a room and felt like something was missing? Perhaps it felt
+      slightly bare and uninviting. I’ve got some simple tips to help you make
+      any room feel complete.
+    </p>
+    <footer class="article__footer">
+      <Image
+        src={avatar}
+        alt={"headshot of michelle"}
+        class="article__avatar"
+      />
+      <div class="article__author-info">
+        <p class="article__author"><b>Michelle Appleton</b></p>
+        <time datetime="2020-06-28" class="article__date"> 28 Jun 2020 </time>
+      </div>
+      <button
+        type="button"
+        class="article__share-btn"
+        popovertarget="popover"
+        aria-label="share article"
+        id="share-btn"
+        ><ShareSvg class={"article__icon"} fill={"currentColor"} /></button
+      >
+    </footer>
+    <div class="article__popover" id="popover" popover>
+      <div class="article__popover-content">
+        <p class="article__share-label">Share</p>
+        <a href="#" class="article__social-link">
+          <FbSvg fill={"currentColor"} />
+        </a>
+        <a href="#" class="article__social-link">
+          <XSvg fill={"currentColor"} />
+        </a>
+        <a href="#" class="article__social-link">
+          <PinterestSvg fill={"currentColor"} />
+        </a>
+      </div>
+      <div class="article__popover-arrow"></div>
+    </div>
+    <div class="article__popover-mobile">
+      <div class="article__popover-content">
+        <p class="article__share-label">Share</p>
+        <a href="#" class="article__social-link">
+          <FbSvg fill={"currentColor"} />
+        </a>
+        <a href="#" class="article__social-link">
+          <XSvg fill={"currentColor"} />
+        </a>
+        <a href="#" class="article__social-link">
+          <PinterestSvg fill={"currentColor"} />
+        </a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<script>
+  const shareBtn = document.getElementById("share-btn");
+  const mobilePopover = document.querySelector(".article__popover-mobile");
+
+  // Toggle mobile popover when share button is clicked
+  shareBtn?.addEventListener("click", (e) => {
+    // Only handle on mobile (when native popover is hidden)
+    if (window.innerWidth < 800) {
+      // 50rem = 800px
+      e.preventDefault();
+      mobilePopover?.classList.toggle("article__popover-mobile--active");
+    }
+  });
+</script>

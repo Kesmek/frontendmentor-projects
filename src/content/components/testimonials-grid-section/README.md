@@ -1,3 +1,8 @@
+---
+title: Testimonials Grid Section
+image: ./preview.png
+---
+
 # Frontend Mentor - Testimonials grid section solution
 
 This is a solution to the

@@ -1,3 +1,8 @@
+---
+title: Recipe Page
+image: ./preview.png
+---
+
 # Front-end Mentor - Recipe page solution
 
 This is a solution to the
@@ -27,7 +32,7 @@ Users should be able to:
 
 ### Screenshot
 
-![desktop design](./desktop-design.png) ![mobile design](./mobile-design.png)
+![desktop design](./preview.png) ![mobile design](./mobile-design.png)
 
 ### Links
 

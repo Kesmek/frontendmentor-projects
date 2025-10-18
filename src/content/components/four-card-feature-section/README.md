@@ -1,3 +1,8 @@
+---
+title: Four Card Feature Section
+image: ./preview.png
+---
+
 # Frontend Mentor - Four card feature section solution
 
 This is a solution to the

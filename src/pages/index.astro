@@ -1,45 +1,10 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import blogPreviewCardImage from "@components/blog-preview-card/result-screenshot.png";
-import recipePageImage from "@components/recipe-page/desktop-design.png";
-import socialLinksProfileImage from "@components/social-links-profile/preview.png";
-import productPreviewCardImage from "@components/product-preview-card/preview.png";
-import fourCardFeatureSection from "@components/four-card-feature-section/preview.png";
-import testimonialsGridSection from "@components/testimonials-grid-section/preview.png";
 import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
 
-const challenges = [
-  {
-    title: "Blog Preview Card",
-    href: "/projects/blog-preview-card",
-    image: blogPreviewCardImage,
-  },
-  {
-    title: "Recipe Page",
-    href: "/projects/recipe-page",
-    image: recipePageImage,
-  },
-  {
-    title: "Social Links Profile",
-    href: "/projects/social-links-profile",
-    image: socialLinksProfileImage,
-  },
-  {
-    title: "Product Preview Card",
-    href: "/projects/product-preview-card",
-    image: productPreviewCardImage,
-  },
-  {
-    title: "Four Card Feature Section",
-    href: "/projects/four-card-feature-section",
-    image: fourCardFeatureSection,
-  },
-  {
-    title: "Testimonials Grid Section",
-    href: "/projects/testimonials-grid-section",
-    image: testimonialsGridSection,
-  },
-];
+const challenges = await getCollection("challenges");
+console.log(challenges);
 ---
 
 <BaseLayout title="Frontend Mentor Solutions">
@@ -51,15 +16,17 @@ const challenges = [
         with Astro.
       </p>
     </header>
-
     <section class="homepage__gallery">
       {
         challenges.map((challenge) => (
-          <a href={challenge.href} class="challenge-card">
-            <h2 class="challenge-card__title">{challenge.title}</h2>
+          <a
+            href={`/projects/${challenge.data.title.toLowerCase().replaceAll(" ", "-")}`}
+            class="challenge-card"
+          >
+            <h2 class="challenge-card__title">{challenge.data.title}</h2>
             <Image
-              src={challenge.image}
-              alt={`Screenshot of the ${challenge.title} challenge`}
+              src={challenge.data.image}
+              alt={`Screenshot of the ${challenge.data.title} challenge`}
               class="challenge-card__image"
             />
           </a>

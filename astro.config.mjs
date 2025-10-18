@@ -53,6 +53,12 @@ export default defineConfig({
         cssVariable: "--barlow-semi-condensed",
         weights: [500, 600],
       },
+      {
+        provider: fontProviders.google(),
+        name: "Manrope",
+        cssVariable: "--manrope",
+        weights: [500, 700],
+      },
     ],
   },
 });

@@ -1,3 +1,8 @@
+---
+title: Product Preview Card
+image: ./preview.png
+---
+
 # Frontend Mentor - Product preview card component solution
 
 This is a solution to the

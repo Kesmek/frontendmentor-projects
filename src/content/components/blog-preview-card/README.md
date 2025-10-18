@@ -1,3 +1,8 @@
+---
+title: Blog Preview Card
+image: ./preview.png
+---
+
 # Front-end Mentor - Blog preview card solution
 
 This is a solution to the
