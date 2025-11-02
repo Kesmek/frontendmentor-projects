@@ -1,0 +1,69 @@
+---
+import ListIcon from "./assets/icon-list.svg";
+import Hero from "./assets/illustration-sign-up-mobile.svg";
+import "./newsletter.css";
+---
+
+<!-- Sign-up form start -->
+<article class="newsletter">
+  <div class="newsletter__content">
+    <h1 class="newsletter__title">Stay updated!</h1>
+    <p class="newsletter__text">
+      Join 60,000+ product managers receiving monthly updates on:
+    </p>
+    <ul class="newsletter__list">
+      <li class="newsletter__list-item">
+        <ListIcon class="newsletter__list-icon" />
+        <p class="newsletter__list-text">
+          Product discovery and building what matters
+        </p>
+      </li>
+      <li class="newsletter__list-item">
+        <ListIcon class="newsletter__list-icon" />
+        <p class="newsletter__list-text">
+          Measuring to ensure updates are a success
+        </p>
+      </li>
+      <li class="newsletter__list-item">
+        <ListIcon class="newsletter__list-icon" />
+        <p class="newsletter__list-text">And much more!</p>
+      </li>
+    </ul>
+    <form class="newsletter__form" id="newsletter__form" novalidate>
+      <div class="newsletter__form-group">
+        <label for="email" class="newsletter__form-label">Email address</label>
+        <span
+          class="newsletter__form-label newsletter__form-error"
+          aria-live="polite"></span>
+        <input
+          name="email"
+          id="email"
+          type="email"
+          placeholder="email@company.com"
+          autocomplete="email"
+          class="newsletter__form-input"
+        />
+      </div>
+      <button type="submit" class="newsletter__form-submit">
+        Subscribe to monthly newsletter
+      </button>
+    </form>
+  </div>
+  <Hero class="newsletter__hero" />
+  <dialog class="newsletter__success" id="newsletter__success">
+    <ListIcon class="newsletter__success-icon" />
+    <h2 class="newsletter__success-title">Thanks for subscribing!</h2>
+    <p class="newsletter__success-text">
+      A confirmation email has been sent to ash@loremcompany.com. Please open it
+      and click the button inside to confirm your subscription.
+    </p>
+    <button
+      type="button"
+      class="newsletter__success-btn"
+      id="newsletter__success-btn"
+      commandfor="newsletter__success"
+      command="close">Dismiss message</button
+    >
+  </dialog>
+</article>
+<script src="./form.ts"></script>

@@ -1,0 +1,13 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import NewsletterComponent from "@components/newsletter-sign-up-with-success-message/index.astro";
+import { Font } from "astro:assets";
+---
+
+<BaseLayout
+  title="Frontend Mentor | Newsletter sign-up form with success message"
+  favicon="/frontendmentor-favicon.svg"
+>
+  <Font slot={"head"} cssVariable="--roboto" preload />
+  <NewsletterComponent />
+</BaseLayout>

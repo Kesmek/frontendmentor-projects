@@ -1,0 +1,110 @@
+@layer tokens {
+  :root {
+    --newsletter-red: hsl(4deg 100% 67%);
+    --newsletter-grey: hsl(0deg 0% 58%);
+    --newsletter-blue-1: hsl(235deg 18% 26%);
+    --newsletter-blue-2: hsl(234deg 29% 20%);
+  }
+}
+
+@layer components {
+  .newsletter {
+    font-family: var(--roboto);
+    display: grid;
+    gap: var(--size-3);
+    color: var(--newsletter-blue-2);
+    align-self: start;
+  }
+
+  .newsletter__hero {
+    order: 0;
+    inline-size: 100%;
+  }
+
+  .newsletter__content {
+    order: 1;
+    padding: var(--size-4);
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-6);
+  }
+
+  .newsletter__title {
+    font-size: var(--font-size-6);
+  }
+
+  .newsletter__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-3);
+  }
+
+  .newsletter__list-item {
+    display: flex;
+    gap: var(--size-3);
+    align-items: flex-start;
+  }
+
+  .newsletter__form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-5);
+  }
+
+  .newsletter__form-group {
+    display: grid;
+    gap: var(--size-2);
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .newsletter__form-label {
+    font-size: var(--font-size-0);
+    font-weight: var(--font-weight-7);
+  }
+
+  .newsletter__form-input {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    border-radius: calc(var(--radius-2) * 2);
+    border-color: var(--newsletter-grey);
+    border-style: solid;
+    border-width: var(--border-size-1);
+    padding-block: var(--size-3);
+    padding-inline: var(--size-5);
+
+    &:user-invalid {
+      border-color: var(--newsletter-red);
+      background-color: oklab(from var(--newsletter-red) l a b / 10%);
+      color: var(--newsletter-red);
+    }
+  }
+
+  .newsletter__form-error {
+    justify-self: end;
+    color: var(--newsletter-red);
+  }
+
+  .newsletter__form-submit {
+    background-color: var(--newsletter-blue-2);
+    padding: var(--size-4);
+    text-align: center;
+    color: var(--color-white);
+    font-weight: var(--font-weight-7);
+    border-radius: calc(var(--radius-2) * 2);
+    transition-duration: var(--duration-moderate-1);
+    transition-property: box-shadow, translate;
+
+    &:hover {
+      cursor: pointer;
+      translate: 0 -2px;
+      box-shadow: 0 6px 8px 2px var(--newsletter-grey);
+    }
+  }
+
+  .newsletter__success {
+    inline-size: 100%;
+    block-size: 100%;
+  }
+}

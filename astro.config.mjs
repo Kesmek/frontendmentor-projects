@@ -59,6 +59,12 @@ export default defineConfig({
         cssVariable: "--manrope",
         weights: [500, 700],
       },
+      {
+        provider: fontProviders.google(),
+        name: "Roboto",
+        cssVariable: "--roboto",
+        weights: [400, 700],
+      },
     ],
   },
 });
