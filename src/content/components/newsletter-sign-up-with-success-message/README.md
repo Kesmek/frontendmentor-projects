@@ -19,13 +19,7 @@ realistic projects.
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections
-you keep.**
 
 ## Overview
 
@@ -46,26 +40,12 @@ Users should be able to:
 
 ![](./preview.png)
 
-Add a screenshot of your solution. The easiest way to do this is to use Firefox
-to view your project, right-click the page and select "Take a Screenshot". You
-can choose either a full-height screenshot or a cropped one based on how long
-the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to
-take the screenshot. FireShot has a free option, so you don't need to purchase
-it.
-
-Then crop/optimize/edit your image however you like, add it to your project, and
-update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot.
-If you prefer not to add a screenshot, feel free to remove this entire
-section.**
-
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL:
+  [Add solution URL here](https://www.frontendmentor.io/solutions/)
+- Live Site URL:
+  [https://frontendmentor-projects.pages.dev/projects/newsletter-sign-up-with-success-message/](https://frontendmentor-projects.pages.dev/projects/newsletter-sign-up-with-success-message/)
 
 ## My process
 
@@ -73,83 +53,172 @@ section.**
 
 - Semantic HTML5 markup
 - CSS custom properties
-- Flexbox
 - CSS Grid
+- Container queries
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above
-with your own choices**
+- BEM methodology
+- [Astro](https://astro.build/) - Web Framework
+- TypeScript - Form validation logic
+- Native HTML5 form validation
+- Native `<dialog>` element
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working
-through this project. Writing these out and providing code samples of areas you
-want to highlight is a great way to reinforce your own knowledge.
+This project was an excellent opportunity to explore native HTML5 form
+validation and the modern `<dialog>` element for modal interactions.
 
-To see how you can add code snippets, see below:
+#### Native Form Validation with Custom Messages
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
+Instead of using a validation library, I implemented form validation using the
+browser's native Constraint Validation API. This approach leverages HTML5
+validation attributes while providing custom error messages for a better user
+experience.
 
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
+The key was building a reusable validation system that maps validity states to
+custom messages:
 
-```js
-const proudOfThisFunc = () => {
-  console.log("🎉");
+```typescript
+const getCustomErrorMessage = (field: HTMLInputElement): string => {
+  const validity = field.validity;
+  const fieldName = field.name;
+  const messages = fieldMessages[fieldName] || {};
+
+  if (validity.valueMissing) {
+    return messages.valueMissing || defaultMessages.valueMissing!;
+  }
+  if (validity.typeMismatch) {
+    return messages.typeMismatch || defaultMessages.typeMismatch!;
+  }
+  // ... other validity checks
+  return "";
 };
 ```
 
-If you want more help with writing markdown, we'd recommend checking out
-[The Markdown Guide](https://www.markdownguide.org/) to learn more.
+This pattern provides several advantages:
 
-**Note: Delete this note and the content within this section and replace with
-your own learnings.**
+- **Zero dependencies** - Uses browser APIs for validation
+- **Progressive enhancement** - Falls back to native validation if JavaScript
+  fails
+- **Accessible** - Automatically manages ARIA attributes for screen readers
+- **Customizable** - Field-specific error messages via configuration object
 
-### Continued development
+```typescript
+const fieldMessages: Record<string, ErrorMessages> = {
+  email: {
+    valueMissing: "Email address is required",
+    typeMismatch: "Valid email required",
+  },
+};
+```
 
-Use this section to outline areas that you want to continue focusing on in
-future projects. These could be concepts you're still not completely comfortable
-with or techniques you found useful that you want to refine and perfect.
+#### Accessible Error Display
 
-**Note: Delete this note and the content within this section and replace with
-your own plans for continued development.**
+The validation system dynamically manages accessibility attributes to ensure
+screen readers can announce errors:
 
-### Useful resources
+```typescript
+const showFieldError = (field: HTMLInputElement, message: string): void => {
+  errorElement.textContent = message;
+  field.setAttribute("aria-invalid", "true");
+  if (errorElement.id) {
+    field.setAttribute("aria-describedby", errorElement.id);
+  }
+};
+```
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason.
-  I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article
-  which helped me finally understand XYZ. I'd recommend it to anyone still
-  learning this concept.
+#### Native Dialog Element
 
-**Note: Delete this note and replace the list above with resources that helped
-you during the challenge. These could come in handy for anyone viewing your
-solution or for yourself when you look back on this project in the future.**
+The success message uses the native `<dialog>` element, which provides built-in
+modal functionality without JavaScript libraries:
+
+```html
+<dialog class="newsletter__success" id="newsletter__success">
+  <h2>Thanks for subscribing!</h2>
+  <p>
+    A confirmation email has been sent to
+    <b class="newsletter__success-email"></b>.
+  </p>
+  <button commandfor="newsletter__success" command="close">
+    Dismiss message
+  </button>
+</dialog>
+```
+
+The dialog is controlled using the `showModal()` method, which:
+
+- Renders in the top layer (above all other content)
+- Traps focus within the dialog
+- Closes on ESC key automatically
+- Provides a `::backdrop` pseudo-element for styling
+
+```javascript
+dialog.showModal(); // Opens as modal
+dialog.close(); // Closes dialog
+```
+
+I also experimented with the proposed `commandfor` and `command` attributes for
+declarative dialog control, though these required a polyfill for browser
+compatibility, which I included.
+
+#### Container Queries for Responsive Layout
+
+Instead of media queries, I used container queries to make the component
+responsive based on its own size rather than the viewport:
+
+```css
+@container (inline-size > 50rem) {
+  .newsletter {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .newsletter__hero {
+    display: none;
+  }
+
+  .newsletter__hero--desktop {
+    display: block;
+  }
+}
+```
+
+This makes the component truly reusable - it adapts to its container size rather
+than the viewport, making it work correctly in any layout context.
+
+#### Real-time Validation UX
+
+The form provides multiple validation touchpoints for optimal user experience:
+
+- **On blur** - Validates when user leaves a field (if they've entered data)
+- **On input** - Clears errors as user types to correct mistakes
+- **On submit** - Final validation with focus management to first invalid field
+
+```javascript
+// Clear errors when user starts typing
+form.addEventListener("input", (event) => {
+  const field = event.target as HTMLInputElement;
+  clearFieldError(field);
+});
+
+// Validate on blur if field has value
+form.addEventListener("blur", (event) => {
+  const field = event.target as HTMLInputElement;
+  if (field.value) {
+    validateField(field);
+  }
+}, true);
+```
+
+Key learnings:
+
+- Using the Constraint Validation API (`validity` object) for robust form
+  validation
+- Managing ARIA attributes dynamically for accessibility
+- Leveraging native `<dialog>` element for modals
+- Container queries for truly responsive components
+- Event delegation with capture phase for better performance
+- Progressive enhancement patterns that work without JavaScript
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor -
-  [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links
-you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this
-project. Perhaps you worked in a team or got some inspiration from someone
-else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you
-completed this challenge by yourself, feel free to delete this section
-entirely.**
+- Website - [Justin Scopelleti](https://justin-scopelleti.com/)
+- Frontend Mentor - [@Kesmek](https://www.frontendmentor.io/profile/Kesmek)

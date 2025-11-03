@@ -1,32 +1,33 @@
 const form = document.getElementById("newsletter__form") as HTMLFormElement;
-const closeButton = document.getElementById(
-	"newsletter__success-btn",
-) as HTMLButtonElement;
 
 // Custom error messages for each validity state
 type ErrorMessages = {
-	valueMissing?: string;
-	typeMismatch?: string;
-	patternMismatch?: string;
-	tooShort?: string;
-	tooLong?: string;
-	rangeUnderflow?: string;
-	rangeOverflow?: string;
-	stepMismatch?: string;
-	badInput?: string;
+	valueMissing: string;
+	typeMismatch: string;
+	patternMismatch: string;
+	tooShort: string;
+	tooLong: string;
+	rangeUnderflow: string;
+	rangeOverflow: string;
+	stepMismatch: string;
+	badInput: string;
 };
 
 // Default error messages
 const defaultMessages: ErrorMessages = {
 	valueMissing: "This field is required",
-	typeMismatch: "Please enter a valid value",
-	patternMismatch: "Please match the requested format",
-	tooShort: "Please lengthen this text",
-	tooLong: "Please shorten this text",
+	typeMismatch: "Value is invalid",
+	patternMismatch: "The text does not match the pattern",
+	tooShort: "This text is too short",
+	tooLong: "This text is too long",
+	rangeOverflow: "Value is not within required range",
+	rangeUnderflow: "Value is not within required range",
+	stepMismatch: "Value does not match the step constraint",
+	badInput: "Invalid input",
 };
 
 // Field-specific custom messages
-const fieldMessages: Record<string, ErrorMessages> = {
+const fieldMessages: Record<string, Partial<ErrorMessages>> = {
 	email: {
 		valueMissing: "Email address is required",
 		typeMismatch: "Valid email required",
@@ -43,31 +44,31 @@ const getCustomErrorMessage = (field: HTMLInputElement): string => {
 
 	// Check each validity state and return appropriate message
 	if (validity.valueMissing) {
-		return messages.valueMissing || defaultMessages.valueMissing!;
+		return messages.valueMissing || defaultMessages.valueMissing;
 	}
 	if (validity.typeMismatch) {
-		return messages.typeMismatch || defaultMessages.typeMismatch!;
+		return messages.typeMismatch || defaultMessages.typeMismatch;
 	}
 	if (validity.patternMismatch) {
-		return messages.patternMismatch || defaultMessages.patternMismatch!;
+		return messages.patternMismatch || defaultMessages.patternMismatch;
 	}
 	if (validity.tooShort) {
-		return messages.tooShort || defaultMessages.tooShort!;
+		return messages.tooShort || defaultMessages.tooShort;
 	}
 	if (validity.tooLong) {
-		return messages.tooLong || defaultMessages.tooLong!;
+		return messages.tooLong || defaultMessages.tooLong;
 	}
 	if (validity.rangeUnderflow) {
-		return messages.rangeUnderflow || defaultMessages.rangeUnderflow!;
+		return messages.rangeUnderflow || defaultMessages.rangeUnderflow;
 	}
 	if (validity.rangeOverflow) {
-		return messages.rangeOverflow || defaultMessages.rangeOverflow!;
+		return messages.rangeOverflow || defaultMessages.rangeOverflow;
 	}
 	if (validity.stepMismatch) {
-		return messages.stepMismatch || defaultMessages.stepMismatch!;
+		return messages.stepMismatch || defaultMessages.stepMismatch;
 	}
 	if (validity.badInput) {
-		return messages.badInput || defaultMessages.badInput!;
+		return messages.badInput || defaultMessages.badInput;
 	}
 
 	return "";
@@ -211,18 +212,5 @@ form.addEventListener("submit", (event) => {
 
 		// Clear form fields
 		form.reset();
-	}
-});
-
-closeButton.addEventListener("click", (e) => {
-	if (HTMLButtonElement.prototype.hasAttribute("commandForElement")) {
-		console.log("has prototype");
-	}
-
-	const dialog = document.getElementById(
-		"newsletter__success",
-	) as HTMLDialogElement;
-	if (dialog.open) {
-		dialog.close();
 	}
 });

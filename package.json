@@ -9,7 +9,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "5.15.3"
+    "astro": "5.15.3",
+    "invokers-polyfill": "^0.5.7"
   },
   "devDependencies": {
     "json-parse-better-errors": "^1.0.2",
