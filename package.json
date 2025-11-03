@@ -9,7 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.13.10"
+    "astro": "5.15.3"
   },
   "devDependencies": {
     "json-parse-better-errors": "^1.0.2",

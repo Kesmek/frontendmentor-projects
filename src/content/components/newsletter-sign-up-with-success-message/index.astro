@@ -1,11 +1,14 @@
 ---
 import ListIcon from "./assets/icon-list.svg";
-import Hero from "./assets/illustration-sign-up-mobile.svg";
+import SuccessIcon from "./assets/icon-success.svg";
+import Hero from "./assets/illustration-sign-up-tablet.svg";
+import HeroDesktop from "./assets/illustration-sign-up-desktop.svg";
 import "./newsletter.css";
 ---
 
 <!-- Sign-up form start -->
 <article class="newsletter">
+  <Hero class="newsletter__hero" />
   <div class="newsletter__content">
     <h1 class="newsletter__title">Stay updated!</h1>
     <p class="newsletter__text">
@@ -44,22 +47,24 @@ import "./newsletter.css";
           class="newsletter__form-input"
         />
       </div>
-      <button type="submit" class="newsletter__form-submit">
+      <button type="submit" class="newsletter__btn">
         Subscribe to monthly newsletter
       </button>
     </form>
   </div>
-  <Hero class="newsletter__hero" />
+  <HeroDesktop class="newsletter__hero--desktop" />
   <dialog class="newsletter__success" id="newsletter__success">
-    <ListIcon class="newsletter__success-icon" />
+    <SuccessIcon class="newsletter__success-icon" />
     <h2 class="newsletter__success-title">Thanks for subscribing!</h2>
     <p class="newsletter__success-text">
-      A confirmation email has been sent to ash@loremcompany.com. Please open it
-      and click the button inside to confirm your subscription.
+      A confirmation email has been sent to <b class="newsletter__success-email"
+        >ash@loremcompany.com</b
+      >. Please open it and click the button inside to confirm your
+      subscription.
     </p>
     <button
       type="button"
-      class="newsletter__success-btn"
+      class="newsletter__btn newsletter__success-btn"
       id="newsletter__success-btn"
       commandfor="newsletter__success"
       command="close">Dismiss message</button

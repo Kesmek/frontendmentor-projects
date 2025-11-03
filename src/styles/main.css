@@ -5,115 +5,116 @@
 @import "tokens.css";
 
 @layer base {
-  p {
-    font-size: inherit;
-  }
+	p {
+		font-size: inherit;
+	}
 
-  main {
-    inline-size: 100%;
-    min-block-size: 100dvh;
-    place-items: center;
-    background-color: var(--color-background);
-    display: grid;
-  }
+	main {
+		inline-size: 100%;
+		min-block-size: 100dvh;
+		place-items: center;
+		background-color: var(--color-background);
+		display: grid;
+		container-type: inline-size;
+	}
 }
 
 /* Homepage Styles */
 .homepage {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--size-10);
-  padding: var(--size-10);
-  text-align: center;
-  font-family: sans-serif;
-  inline-size: 100%;
-  block-size: 100%;
-  container-type: inline-size;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--size-10);
+	padding: var(--size-10);
+	text-align: center;
+	font-family: sans-serif;
+	inline-size: 100%;
+	block-size: 100%;
+	container-type: inline-size;
 }
 
 .homepage__header {
-  display: flex;
-  flex-direction: column;
-  gap: var(--size-4);
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-4);
 }
 
 .homepage__title {
-  font-size: var(--font-size-7);
-  font-weight: var(--font-weight-8);
+	font-size: var(--font-size-7);
+	font-weight: var(--font-weight-8);
 }
 
 .homepage__subtitle {
-  font-size: var(--font-size-3);
-  color: var(--recipe-color-stone-600);
+	font-size: var(--font-size-3);
+	color: var(--recipe-color-stone-600);
 }
 
 .homepage__gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--size-8);
-  inline-size: 100%;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: var(--size-8);
+	inline-size: 100%;
 }
 
 .challenge-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border-radius: var(--radius-3);
-  text-decoration: none;
-  color: inherit;
-  transition: transform 0.2s ease-in-out;
-  max-inline-size: var(--size-16);
-  background-color: var(--color-stone-100);
-  box-shadow: 0 0 5px var(--color-neutral-500);
-  transition-duration: var(--duration-quick-2);
-  transition-property: all;
-  overflow: clip;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	border-radius: var(--radius-3);
+	text-decoration: none;
+	color: inherit;
+	transition: transform 0.2s ease-in-out;
+	max-inline-size: var(--size-16);
+	background-color: var(--color-stone-100);
+	box-shadow: 0 0 5px var(--color-neutral-500);
+	transition-duration: var(--duration-quick-2);
+	transition-property: all;
+	overflow: clip;
 }
 
 .challenge-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 15px var(--color-neutral-500);
+	transform: translateY(-5px);
+	box-shadow: 0 0 15px var(--color-neutral-500);
 }
 
 .challenge-card__image {
-  inline-size: 100%;
-  aspect-ratio: 1;
-  object-fit: cover;
-  object-position: top;
-  height: auto;
-  border-block-start: var(--border-size-1) solid var(--color-neutral-500);
+	inline-size: 100%;
+	aspect-ratio: 1;
+	object-fit: cover;
+	object-position: top;
+	height: auto;
+	border-block-start: var(--border-size-1) solid var(--color-neutral-500);
 }
 
 .challenge-card__title {
-  font-size: var(--font-size-4);
-  font-weight: var(--font-weight-6);
-  text-transform: capitalize;
-  padding-inline: var(--size-3);
-  padding-block: var(--size-3);
-  block-size: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	font-size: var(--font-size-4);
+	font-weight: var(--font-weight-6);
+	text-transform: capitalize;
+	padding-inline: var(--size-3);
+	padding-block: var(--size-3);
+	block-size: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .homepage__footer {
-  font-size: var(--font-size-2);
+	font-size: var(--font-size-2);
 }
 
 .homepage__footer a {
-  color: var(--recipe-color-brown-800);
-  text-decoration: underline;
+	color: var(--recipe-color-brown-800);
+	text-decoration: underline;
 }
 
 @container (width < 25rem) {
-  .homepage__gallery {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
+	.homepage__gallery {
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	}
 }
 
 @media (width < 60rem) {
-  .homepage {
-    padding: var(--size-6);
-  }
+	.homepage {
+		padding: var(--size-6);
+	}
 }
