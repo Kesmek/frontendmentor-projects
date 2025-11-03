@@ -43,9 +43,9 @@ Users should be able to:
 ### Links
 
 - Solution URL:
-  [Add solution URL here](https://www.frontendmentor.io/solutions/)
+  [https://www.frontendmentor.io/solutions/newsletter-sign-up-form-Sv0JAlAnB-](https://www.frontendmentor.io/solutions/newsletter-sign-up-form-Sv0JAlAnB-)
 - Live Site URL:
-  [https://frontendmentor-projects.pages.dev/projects/newsletter-sign-up-with-success-message/](https://frontendmentor-projects.pages.dev/projects/newsletter-sign-up-with-success-message/)
+  [https://frontendmentor-projects.pages.dev/projects/newsletter-sign-up-form/](https://frontendmentor-projects.pages.dev/projects/newsletter-sign-up-form/)
 
 ## My process
 
@@ -158,7 +158,7 @@ dialog.close(); // Closes dialog
 
 I also experimented with the proposed `commandfor` and `command` attributes for
 declarative dialog control, though these required a polyfill for browser
-compatibility, which I included.
+compatibility.
 
 #### Container Queries for Responsive Layout
 
