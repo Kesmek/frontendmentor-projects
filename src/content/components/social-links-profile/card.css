@@ -1,95 +1,95 @@
 @layer tokens {
-  :root {
-    --card-color-brand: hsl(75deg 94% 57%);
-    --card-paragraph: 14px;
-    --card-color-link: hsl(0deg 0% 20%);
-    --card-color-background: hsl(0deg 0% 12%);
-    --card-title: 1.5rem;
-    --card-subheading: 0.875rem;
-  }
+	:root {
+		--card-color-brand: hsl(75deg 94% 57%);
+		--card-paragraph: 14px;
+		--card-color-link: hsl(0deg 0% 20%);
+		--card-color-background: hsl(0deg 0% 12%);
+		--card-title: 1.5rem;
+		--card-subheading: 0.875rem;
+	}
 }
 
 @layer components {
-  /* stylelint-disable-next-line plugin/selector-bem-pattern */
-  body {
-    background-color: hsl(0deg 0% 8%);
-    font-family: var(--inter);
-  }
+	/* stylelint-disable-next-line plugin/selector-bem-pattern */
+	body {
+		background-color: hsl(0deg 0% 8%);
+		font-family: var(--inter);
+	}
 
-  /** @define card **/
-  .card {
-    background-color: var(--card-color-background);
-    max-inline-size: calc(var(--size-14) + var(--size-11));
-    inline-size: min(380px, 100%);
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: var(--color-white);
-    gap: var(--size-6);
-    padding: calc(var(--size-7) * 1.25);
-  }
+	/** @define card **/
+	.card {
+		background-color: var(--card-color-background);
+		max-inline-size: calc(var(--size-14) + var(--size-11));
+		inline-size: min(380px, 100%);
+		border-radius: 8px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		color: var(--color-white);
+		gap: var(--size-6);
+		padding: calc(var(--size-7) * 1.25);
+	}
 
-  .card__avatar {
-    border-radius: var(--radius-round);
-    inline-size: calc(var(--size-10) + var(--size-2));
-  }
+	.card__avatar {
+		border-radius: var(--radius-round);
+		inline-size: calc(var(--size-10) + var(--size-2));
+	}
 
-  .card__details-block {
-    display: flex;
-    flex-direction: column;
-    gap: calc(var(--size-2) * 1.5);
-    align-items: center;
-    margin-block: calc(var(--size-1) * 1.25);
-  }
+	.card__details-block {
+		display: flex;
+		flex-direction: column;
+		gap: calc(var(--size-2) * 1.5);
+		align-items: center;
+		margin-block: calc(var(--size-1) * 1.25);
+	}
 
-  .card__name {
-    font-size: var(--card-title);
-    font-weight: var(--font-weight-6);
-    text-align: center;
-  }
+	.card__name {
+		font-size: var(--card-title);
+		font-weight: var(--font-weight-6);
+		text-align: center;
+	}
 
-  .card__location {
-    font-size: var(--card-subheading);
-    color: var(--card-color-brand);
-    text-align: center;
-  }
+	.card__location {
+		font-size: var(--card-subheading);
+		color: var(--card-color-brand);
+		text-align: center;
+	}
 
-  .card__bio {
-    font-size: var(--card-paragraph);
-  }
+	.card__bio {
+		font-size: var(--card-paragraph);
+	}
 
-  .card__list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: var(--size-3);
-    inline-size: 100%;
-  }
+	.card__list {
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		gap: var(--size-3);
+		inline-size: 100%;
+	}
 
-  /* stylelint-disable-next-line plugin/selector-bem-pattern */
-  .card__list > li {
-    padding: 0;
-  }
+	/* stylelint-disable-next-line plugin/selector-bem-pattern */
+	.card__list > li {
+		padding: 0;
+	}
 
-  .card__link {
-    display: flex;
-    justify-content: center;
-    inline-size: 100%;
-    background-color: var(--card-color-link);
-    border-radius: 8px;
-    text-decoration: none;
-    color: var(--color-white);
-    font-family: var(--inter);
-    font-weight: bold;
-    font-size: var(--card-paragraph);
-    letter-spacing: 1px;
-    padding-block: calc(var(--size-1) + var(--size-2));
-    text-align: center;
+	.card__link {
+		display: flex;
+		justify-content: center;
+		inline-size: 100%;
+		background-color: var(--card-color-link);
+		border-radius: 8px;
+		text-decoration: none;
+		color: var(--color-white);
+		font-family: var(--inter);
+		font-weight: bold;
+		font-size: var(--card-paragraph);
+		letter-spacing: 1px;
+		padding-block: calc(var(--size-1) + var(--size-2));
+		text-align: center;
 
-    &:hover {
-      background-color: var(--card-color-brand);
-      color: var(--color-black);
-    }
-  }
+		&:hover {
+			background-color: var(--card-color-brand);
+			color: var(--color-black);
+		}
+	}
 }

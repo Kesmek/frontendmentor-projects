@@ -1,21 +1,21 @@
 @layer components {
-  .card {
-    inline-size: 100%;
-    border-block-start: var(--size-1) solid var(--accent-color);
-    border-radius: var(--radius-2);
-    padding: var(--size-7);
-    gap: var(--size-3);
-    box-shadow: 0 5px 15px -5px var(--shadow-color);
-    display: flex;
-    flex-direction: column;
-  }
+	.card {
+		inline-size: 100%;
+		border-block-start: var(--size-1) solid var(--accent-color);
+		border-radius: var(--radius-2);
+		padding: var(--size-7);
+		gap: var(--size-3);
+		box-shadow: 0 5px 15px -5px var(--shadow-color);
+		display: flex;
+		flex-direction: column;
+	}
 
-  .card__description {
-    color: var(--text-color);
-  }
+	.card__description {
+		color: var(--text-color);
+	}
 
-  .card__image {
-    align-self: flex-end;
-    margin-block: var(--size-3);
-  }
+	.card__image {
+		align-self: flex-end;
+		margin-block: var(--size-3);
+	}
 }
