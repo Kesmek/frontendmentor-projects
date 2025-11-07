@@ -1,6 +1,6 @@
 ---
 title: Time Tracking Dashboard
-image: ./preview.jpg
+image: ./preview.png
 ---
 
 # Frontend Mentor - Time tracking dashboard solution
@@ -33,7 +33,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./preview.jpg)
+![](./preview.png)
 
 ### Links
 
