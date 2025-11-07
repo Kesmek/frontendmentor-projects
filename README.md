@@ -4,24 +4,27 @@ This repository contains my solutions to various challenges from [Frontend Mento
 
 ## Completed Challenges
 
-Here is a list of the challenges I have completed so far:
-
--   **Blog Preview Card**
-    -   [Live Demo](/projects/blog-preview-card)
-    -   [Challenge README](./src/components/blog-preview-card/README.md)
--   **Recipe Page**
-    -   [Live Demo](/projects/recipe-page)
-    -   [Challenge README](./src/components/recipe-page/README.md)
--   **Social Links Profile**
-    -   [Live Demo](/projects/social-links-profile)
-    -   [Challenge README](./src/components/social-links-profile-main/README.md)
+-   **Article Preview Component** - [README](./src/content/components/article-preview-component/README.md)
+-   **Blog Preview Card** - [README](./src/content/components/blog-preview-card/README.md)
+-   **Four Card Feature Section** - [README](./src/content/components/four-card-feature-section/README.md)
+-   **Newsletter Sign Up with Success Message** - [README](./src/content/components/newsletter-sign-up-with-success-message/README.md)
+-   **Product Preview Card** - [README](./src/content/components/product-preview-card/README.md)
+-   **Recipe Page** - [README](./src/content/components/recipe-page/README.md)
+-   **Social Links Profile** - [README](./src/content/components/social-links-profile/README.md)
+-   **Testimonials Grid Section** - [README](./src/content/components/testimonials-grid-section/README.md)
+-   **Time Tracking Dashboard** - [README](./src/content/components/time-tracking-dashboard/README.md)
 
 ## Built With
 
--   [Astro](https://astro.build/) - The web framework for building content-driven websites.
--   [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*)
--   [Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox)
--   [Mobile-first workflow](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Responsive/Mobile_first)
+-   [Astro](https://astro.build/) - Web framework for content-driven websites
+-   [Bun](https://bun.sh/) - JavaScript runtime and package manager
+-   Semantic HTML5 markup
+-   CSS Custom Properties
+-   CSS Grid & Flexbox
+-   Container Queries
+-   BEM Methodology
+-   Mobile-first workflow
+-   Progressive enhancement
 
 ## Getting Started
 

@@ -108,6 +108,11 @@
 	.dash__input-group {
 		display: flex;
 
+		&:has(input:checked) {
+			font-weight: bold;
+			color: var(--color-white);
+		}
+
 		&:has(input:focus-visible) {
 			font-weight: bold;
 			outline: 2px solid var(--color-black);
