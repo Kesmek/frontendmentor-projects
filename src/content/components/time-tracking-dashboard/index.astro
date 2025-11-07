@@ -1,47 +1,119 @@
 ---
+import { Image } from "astro:assets";
+import Card from "./card.astro";
+import rawData from "./data.json" with { type: "json" };
+import ExerciseIcon from "./images/icon-exercise.svg";
+import PlayIcon from "./images/icon-play.svg";
+import SelfCareIcon from "./images/icon-self-care.svg";
+import SocialIcon from "./images/icon-social.svg";
+import StudyIcon from "./images/icon-study.svg";
+import WorkIcon from "./images/icon-work.svg";
+import Jeremy from "./images/image-jeremy.png";
+import "./dash.css";
+import type { SvgComponent } from "astro/types";
 
-import "./data.json" with { type: "json" };
+type Data = (typeof rawData)[0];
+const data: Data[] = rawData;
+const iconMap = {
+  Work: { icon: WorkIcon, className: "dash__card--work" },
+  Play: { icon: PlayIcon, className: "dash__card--play" },
+  Study: { icon: StudyIcon, className: "dash__card--study" },
+  Exercise: { icon: ExerciseIcon, className: "dash__card--exercise" },
+  Social: { icon: SocialIcon, className: "dash__card--social" },
+  "Self Care": { icon: SelfCareIcon, className: "dash__card--self-care" },
+} as Record<string, { icon: SvgComponent & ImageMetadata; className: string }>;
 ---
 
-Report for Jeremy Robson Daily Weekly Monthly Work 5hrs <!-- daily -->
-Previous - 7hrs <!-- daily -->
-32hrs <!-- weekly -->
-Previous - 36hrs <!-- weekly -->
-103hrs <!-- monthly -->
-Previous - 128hrs <!-- monthly -->
-
-Play 1hr <!-- daily -->
-Previous - 2hrs <!-- daily -->
-10hrs <!-- weekly -->
-Previous - 8hrs <!-- weekly -->
-23hrs <!-- monthly -->
-Previous - 29hrs <!-- monthly -->
-
-Study 0hrs <!-- daily -->
-Previous - 1hr <!-- daily -->
-4hrs <!-- weekly -->
-Previous - 7hrs <!-- weekly -->
-13hrs <!-- monthly -->
-Previous - 19hrs <!-- monthly -->
-
-Exercise 1hr <!-- daily -->
-Previous - 1hr <!-- daily -->
-4hrs <!-- weekly -->
-Previous - 5hrs <!-- weekly -->
-11hrs <!-- monthly -->
-Previous - 18hrs <!-- monthly -->
-
-Social 1hr <!-- daily -->
-Previous - 3hrs <!-- daily -->
-5hrs <!-- weekly -->
-Previous - 10hrs <!-- weekly -->
-21hrs <!-- monthly -->
-Previous - 23hrs <!-- monthly -->
-
-Self Care 0hrs <!-- daily -->
-Previous - 1hr <!-- daily -->
-2hrs <!-- weekly -->
-Previous - 2hrs <!-- weekly -->
-7hrs <!-- monthly -->
-Previous - 11hrs <!-- monthly -->
-
+<section class="dash">
+  <article class="dash__profile">
+    <div class="dash__profile-header">
+      <Image
+        src={Jeremy}
+        alt={"profile of Jeremy Robson"}
+        class="dash__profile-image"
+      />
+      <p class="dash__profile-text">Report for</p>
+      <h2 class="dash__profile-name">Jeremy Robson</h2>
+    </div>
+    <fieldset class="dash__timeframes">
+      <legend class="dash__timeframe-legend">Select timeframe</legend>
+      <div class="dash__input-group">
+        <input
+          type="radio"
+          name="timeframe"
+          value="daily"
+          id="timeframe-daily"
+          class="dash__input dash__input--daily"
+          checked
+        />
+        <label for="timeframe-daily" class="dash__input-label">Daily</label>
+      </div>
+      <div class="dash__input-group">
+        <input
+          type="radio"
+          name="timeframe"
+          value="weekly"
+          id="timeframe-weekly"
+          class="dash__input dash__input--weekly"
+        />
+        <label for="timeframe-weekly" class="dash__input-label">Weekly</label>
+      </div>
+      <div class="dash__input-group">
+        <input
+          type="radio"
+          name="timeframe"
+          value="monthly"
+          id="timeframe-monthly"
+          class="dash__input dash__input--monthly"
+        />
+        <label for="timeframe-monthly" class="dash__input-label">Monthly</label>
+      </div>
+    </fieldset>
+  </article>
+  {
+    data.map((cardData) => {
+      const { icon: Icon, className } = iconMap[cardData.title];
+      return (
+        <Card title={cardData.title} class={className}>
+          <Icon slot="image" class="dash__card-image" />
+          <p
+            slot="duration-current"
+            class="dash__card-duration--daily dash__card-duration--current"
+          >
+            {cardData.timeframes.daily.current}hrs
+          </p>
+          <p
+            slot="duration-current"
+            class="dash__card-duration--weekly dash__card-duration--current"
+          >
+            {cardData.timeframes.weekly.current}hrs
+          </p>
+          <p
+            slot="duration-current"
+            class="dash__card-duration--monthly dash__card-duration--current"
+          >
+            {cardData.timeframes.monthly.current}hrs
+          </p>
+          <p
+            slot="duration-last"
+            class="dash__card-duration--daily dash__card-duration--previous"
+          >
+            Yesterday - {cardData.timeframes.daily.previous}hrs
+          </p>
+          <p
+            slot="duration-last"
+            class="dash__card-duration--weekly dash__card-duration--previous"
+          >
+            Last Week - {cardData.timeframes.weekly.previous}hrs
+          </p>
+          <p
+            slot="duration-last"
+            class="dash__card-duration--monthly dash__card-duration--previous"
+          >
+            Last Month - {cardData.timeframes.monthly.previous}hrs
+          </p>
+        </Card>
+      );
+    })
+  }
+</section>

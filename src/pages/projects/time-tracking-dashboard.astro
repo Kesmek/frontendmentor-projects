@@ -1,0 +1,13 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import TimeTrackingDashboard from "@components/time-tracking-dashboard/index.astro";
+import { Font } from "astro:assets";
+---
+
+<BaseLayout
+  title="Frontend Mentor | Time tracking dashboard"
+  favicon="/frontendmentor-favicon.svg"
+>
+  <Font slot={"head"} cssVariable="--rubik" preload />
+  <TimeTrackingDashboard />
+</BaseLayout>

@@ -1,5 +1,233 @@
 @layer tokens {
 	:root {
-		--dash-color-red: red;
+		--dash-color-orange-300: hsl(15deg 100% 70%);
+		--dash-color-blue-300: hsl(195deg 74% 62%);
+		--dash-color-pink-400: hsl(348deg 100% 68%);
+		--dash-color-green-400: hsl(145deg 58% 55%);
+		--dash-color-yellow-300: hsl(43deg 84% 65%);
+		--dash-color-navy-200: hsl(236deg 100% 87%);
+		--dash-color-navy-900: hsl(235deg 46% 20%);
+		--dash-color-navy-950: hsl(226deg 43% 10%);
+		--dash-color-purple-500: hsl(235deg 45% 61%);
+		--dash-color-purple-600: hsl(246deg 80% 60%);
+		--dash-color-purple-700: hsl(264deg 64% 52%);
+		/* stylelint-disable-next-line plugin/selector-bem-pattern */
+		--color-background: var(--dash-color-navy-950);
+	}
+}
+
+@layer base {
+	p /* stylelint-disable-line plugin/selector-bem-pattern */,
+	h1 /* stylelint-disable-line plugin/selector-bem-pattern */,
+	h2 /* stylelint-disable-line plugin/selector-bem-pattern */ {
+		text-box: trim-both cap alphabetic;
+	}
+}
+
+@layer components {
+	.dash {
+		font-size: 18px;
+		font-family: var(--rubik);
+		color: var(--dash-color-navy-200);
+		display: grid;
+		gap: var(--size-4);
+		padding: var(--size-8) var(--size-1);
+	}
+
+	.dash__profile {
+		background: var(--dash-color-navy-900);
+		border-radius: var(--radius-3);
+		grid-row: span 2;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.dash__profile-header {
+		display: grid;
+		grid-template-rows: 1fr 1fr;
+		grid-template-columns: auto 1fr;
+		gap: var(--size-2) var(--size-3);
+		padding: var(--size-5);
+		background: var(--dash-color-purple-600);
+		border-radius: var(--radius-3);
+		flex: 1;
+	}
+
+	.dash__profile-text {
+		font-weight: var(--font-weight-4);
+		font-size: var(--font-size-1);
+		align-self: end;
+	}
+
+	.dash__profile-name {
+		font-weight: var(--font-weight-3);
+		font-size: var(--font-size-4);
+		color: var(--color-white);
+	}
+
+	.dash__profile-image {
+		grid-row: span 2;
+		inline-size: var(--size-9);
+		border: 3px solid var(--color-white);
+		border-radius: var(--radius-round);
+	}
+
+	.dash__timeframes {
+		padding: var(--size-4) var(--size-7);
+		border: none;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		gap: var(--size-3);
+	}
+
+	.dash__input {
+		opacity: 0;
+		width: 0;
+	}
+
+	.dash__timeframe-legend {
+		width: 0;
+		height: 0;
+		opacity: 0;
+		position: absolute;
+		pointer-events: none;
+	}
+
+	.dash__input-label {
+		cursor: pointer;
+		padding: var(--size-1);
+		transition-property: color;
+		transition-duration: var(--duration-quick-2);
+
+		&:hover {
+			color: var(--color-white);
+		}
+	}
+
+	.dash__input-group {
+		display: flex;
+
+		&:has(input:focus-visible) {
+			font-weight: bold;
+			outline: 2px solid var(--color-black);
+			outline-offset: 2px;
+		}
+	}
+
+	.dash__card-duration--daily,
+	.dash__card-duration--weekly,
+	.dash__card-duration--monthly {
+		display: none;
+		position: absolute;
+		opacity: 0;
+		transition-behavior: allow-discrete;
+		transition-property: display, opacity, translate;
+		transition-duration: var(--duration-moderate-2);
+		translate: 0 calc(var(--size-5) * -1);
+	}
+
+	.dash:has(.dash__input--daily:checked) .dash__card-duration--daily,
+	.dash:has(.dash__input--weekly:checked) .dash__card-duration--weekly,
+	.dash:has(.dash__input--monthly:checked) .dash__card-duration--monthly {
+		opacity: 1;
+		position: relative;
+		display: block;
+		translate: 0 0;
+
+		@starting-style {
+			opacity: 0;
+			translate: 0 calc(var(--size-5) * -1);
+		}
+	}
+
+	.dash__card-image {
+		margin-block-start: calc(var(--size-3) * -0.75);
+		block-size: var(--size-8);
+		margin-inline-end: var(--size-5);
+	}
+
+	.dash__card-duration--current {
+		color: var(--color-white);
+		font-size: var(--font-size-5);
+		font-weight: var(--font-weight-3);
+	}
+
+	.dash__card-duration--previous {
+		font-size: var(--font-size-1);
+		font-weight: var(--font-weight-3);
+		place-self: center end;
+	}
+
+	.dash__card--work {
+		background: var(--dash-color-orange-300);
+	}
+
+	.dash__card--play {
+		background: var(--dash-color-blue-300);
+	}
+
+	.dash__card--study {
+		background: var(--dash-color-pink-400);
+	}
+
+	.dash__card--exercise {
+		background: var(--dash-color-green-400);
+	}
+
+	.dash__card--social {
+		background: var(--dash-color-purple-700);
+	}
+
+	.dash__card--self-care {
+		background: var(--dash-color-yellow-300);
+	}
+
+	@container (50rem < width < 80rem) {
+		.dash {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		.dash__profile {
+			grid-column: span 2;
+			grid-row: 1;
+			justify-self: center;
+			inline-size: var(--size-14);
+		}
+	}
+
+	@container (width > 80rem) {
+		.dash {
+			grid-template-columns: repeat(4, 1fr);
+			padding: var(--size-8);
+		}
+
+		.dash__profile-header {
+			grid-template-columns: 1fr;
+			grid-template-rows: unset;
+			gap: var(--size-4);
+		}
+
+		.dash__profile-image {
+			grid-row: 1;
+			inline-size: var(--size-10);
+		}
+
+		.dash__timeframes {
+			flex-direction: column;
+		}
+
+		.dash__card-duration--current {
+			font-size: var(--font-size-7);
+			margin-block: var(--size-5) var(--size-2);
+		}
+
+		.dash__card-duration--previous {
+			place-self: start;
+		}
+
+		.dash__profile-name {
+			font-size: var(--font-size-6);
+		}
 	}
 }
