@@ -1,0 +1,21 @@
+---
+import Ellipsis from "./images/icon-ellipsis.svg";
+import "./card.css";
+
+interface Props {
+  title: string;
+  class?: string;
+}
+
+const { title, class: className } = Astro.props;
+---
+
+<article class:list={["card", className]}>
+  <slot name="image" />
+  <div class="card__info">
+    <h3 class="card__title">{title}</h3>
+    <Ellipsis class="card__ellipsis" />
+    <slot name="duration-current" />
+    <slot name="duration-last" />
+  </div>
+</article>

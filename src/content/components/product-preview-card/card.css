@@ -1,93 +1,93 @@
 @layer tokens {
-  :root {
-    --card-color-green-500: hsl(158deg 36% 37%);
-    --card-color-green-700: hsl(158deg 42% 18%);
-    --card-color-black: hsl(212deg 21% 14%);
-    --card-color-grey: hsl(228deg 12% 48%);
-    --card-color-cream: hsl(30deg 38% 92%);
-    /* stylelint-disable-next-line plugin/selector-bem-pattern */
-    --color-background: var(--card-color-cream);
-  }
+	:root {
+		--card-color-green-500: hsl(158deg 36% 37%);
+		--card-color-green-700: hsl(158deg 42% 18%);
+		--card-color-black: hsl(212deg 21% 14%);
+		--card-color-grey: hsl(228deg 12% 48%);
+		--card-color-cream: hsl(30deg 38% 92%);
+		/* stylelint-disable-next-line plugin/selector-bem-pattern */
+		--color-background: var(--card-color-cream);
+	}
 }
 
 @layer components {
-  .card {
-    font-size: 14px;
-    font-family: var(--montserrat);
-    display: grid;
-    grid-template-columns: 1fr;
-    max-inline-size: var(--size-15);
-    margin-inline: auto;
-    background-color: var(--color-white);
-    color: var(--card-color-grey);
-    border-radius: calc(var(--radius-2) * 2);
-    overflow: clip;
-  }
+	.card {
+		font-size: 14px;
+		font-family: var(--montserrat);
+		display: grid;
+		grid-template-columns: 1fr;
+		max-inline-size: var(--size-15);
+		margin-inline: auto;
+		background-color: var(--color-white);
+		color: var(--card-color-grey);
+		border-radius: calc(var(--radius-2) * 2);
+		overflow: clip;
+	}
 
-  .card__content {
-    padding: var(--size-7);
-    display: flex;
-    flex-direction: column;
-    gap: var(--size-5);
-    justify-content: space-between;
-  }
+	.card__content {
+		padding: var(--size-7);
+		display: flex;
+		flex-direction: column;
+		gap: var(--size-5);
+		justify-content: space-between;
+	}
 
-  .card__category {
-    text-transform: uppercase;
-    letter-spacing: var(--size-1);
-  }
+	.card__category {
+		text-transform: uppercase;
+		letter-spacing: var(--size-1);
+	}
 
-  .card__title {
-    color: var(--card-color-black);
-    font-size: var(--font-size-5);
-    font-family: var(--fraunces);
-    line-height: var(--font-lineheight-00);
-  }
+	.card__title {
+		color: var(--card-color-black);
+		font-size: var(--font-size-5);
+		font-family: var(--fraunces);
+		line-height: var(--font-lineheight-00);
+	}
 
-  .card__prices {
-    display: flex;
-    align-items: center;
-    gap: var(--size-4);
-  }
+	.card__prices {
+		display: flex;
+		align-items: center;
+		gap: var(--size-4);
+	}
 
-  .card__price--new {
-    color: var(--card-color-green-500);
-    font-size: var(--font-size-5);
-    font-family: var(--fraunces);
-  }
+	.card__price--new {
+		color: var(--card-color-green-500);
+		font-size: var(--font-size-5);
+		font-family: var(--fraunces);
+	}
 
-  .card__button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--size-3);
-    background-color: var(--card-color-green-500);
-    color: var(--color-white);
-    padding: calc(var(--size-2) + var(--size-1));
-    border-radius: calc(var(--radius-2) + var(--radius-1));
-    border: none;
-    font-weight: var(--font-weight-7);
+	.card__button {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: var(--size-3);
+		background-color: var(--card-color-green-500);
+		color: var(--color-white);
+		padding: calc(var(--size-2) + var(--size-1));
+		border-radius: calc(var(--radius-2) + var(--radius-1));
+		border: none;
+		font-weight: var(--font-weight-7);
 
-    &:hover {
-      cursor: pointer;
-      background-color: var(--card-color-green-700);
-    }
-  }
+		&:hover {
+			cursor: pointer;
+			background-color: var(--card-color-green-700);
+		}
+	}
 
-  .card__image {
-    aspect-ratio: 1;
-    object-fit: cover;
-    block-size: 100%;
-  }
+	.card__image {
+		aspect-ratio: 1;
+		object-fit: cover;
+		block-size: 100%;
+	}
 
-  @media (width > 38rem) {
-    .card {
-      max-inline-size: 36rem;
-      grid-template-columns: 1fr 1fr;
-    }
+	@media (width > 38rem) {
+		.card {
+			max-inline-size: 36rem;
+			grid-template-columns: 1fr 1fr;
+		}
 
-    .card__image {
-      aspect-ratio: revert;
-    }
-  }
+		.card__image {
+			aspect-ratio: revert;
+		}
+	}
 }

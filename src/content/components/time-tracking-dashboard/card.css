@@ -1,0 +1,59 @@
+@layer components {
+	.card {
+		background: var(--card-color-background);
+		position: relative;
+		overflow: clip;
+		border-radius: var(--radius-3);
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		justify-content: flex-end;
+	}
+
+	.card__info {
+		inline-size: 100%;
+		padding: var(--size-5);
+		background: var(--dash-color-navy-900);
+		isolation: isolate;
+		border-start-start-radius: var(--radius-3);
+		border-start-end-radius: var(--radius-3);
+		display: grid;
+		grid: auto auto / auto auto;
+		gap: var(--size-3);
+		transition-property: background;
+		transition-duration: var(--duration-moderate-1);
+
+		&:hover {
+			background: oklch(from var(--dash-color-navy-900) calc(l * 1.2) c h);
+			cursor: pointer;
+		}
+	}
+
+	.card__title {
+		font-size: var(--font-size-2);
+		font-weight: var(--font-weight-5);
+		color: var(--color-white);
+	}
+
+	.card__ellipsis {
+		place-self: center end;
+		padding: var(--size-1);
+		box-sizing: content-box;
+
+		&:hover {
+			filter: brightness(200%);
+		}
+	}
+
+	@container (width > 80rem) {
+		.card__info {
+			grid-template-columns: auto auto;
+			grid-template-rows: auto auto auto;
+		}
+
+		.card__ellipsis {
+			align-self: start;
+			grid-row: span 3;
+		}
+	}
+}

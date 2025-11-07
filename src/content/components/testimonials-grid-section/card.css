@@ -1,58 +1,58 @@
 @layer components {
-  .card {
-    display: flex;
-    flex-direction: column;
-    box-shadow: 2.5rem 3.75rem 3.75rem -0.75rem
-      var(--testimonials-color-grey-200);
-    padding: var(--size-7);
-    border-radius: calc(var(--radius-2) * 1.5);
-    gap: var(--size-5);
-    color: var(--testimonials-color-grey-500);
-    background-color: var(--color-white);
-    position: relative;
-  }
+	.card {
+		display: flex;
+		flex-direction: column;
+		box-shadow: 2.5rem 3.75rem 3.75rem -0.75rem
+			var(--testimonials-color-grey-200);
+		padding: var(--size-7);
+		border-radius: calc(var(--radius-2) * 1.5);
+		gap: var(--size-5);
+		color: var(--testimonials-color-grey-500);
+		background-color: var(--color-white);
+		position: relative;
+	}
 
-  .card__caption {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: var(--size-3);
-  }
+	.card__caption {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: var(--size-3);
+	}
 
-  .card__image {
-    border-radius: var(--radius-round);
-    inline-size: var(--size-7);
-    border-width: var(--border-size-2);
-    border-style: solid;
-    border-color: var(--image-bg-color, transparent);
-  }
+	.card__image {
+		border-radius: var(--radius-round);
+		inline-size: var(--size-7);
+		border-width: var(--border-size-2);
+		border-style: solid;
+		border-color: var(--image-bg-color, transparent);
+	}
 
-  .card__attributions {
-    display: flex;
-    flex-direction: column;
-    gap: calc(var(--size-1) * 1.5);
-  }
+	.card__attributions {
+		display: flex;
+		flex-direction: column;
+		gap: calc(var(--size-1) * 1.5);
+	}
 
-  .card__author {
-    font-size: calc(var(--testimonials-font-size-body) + 1px);
-    font-weight: var(--font-weight-6);
-  }
+	.card__author {
+		font-size: calc(var(--testimonials-font-size-body) + 1px);
+		font-weight: var(--font-weight-6);
+	}
 
-  .card__author-position {
-    font-size: var(--font-size-0);
-    color: color-mix(in oklab, currentcolor 95%, black 5%);
-  }
+	.card__author-position {
+		font-size: var(--font-size-0);
+		color: color-mix(in oklab, currentcolor 95%, black 5%);
+	}
 
-  .card__blockquote {
-    gap: var(--size-5);
-    display: flex;
-    flex-direction: column;
-    z-index: 1;
-  }
+	.card__blockquote {
+		gap: var(--size-5);
+		display: flex;
+		flex-direction: column;
+		z-index: 1;
+	}
 
-  .card__quote--highlighted {
-    font-size: calc(var(--font-size-3) * 1.15);
-    font-weight: var(--font-weight-6);
-    line-height: var(--font-lineheight-1);
-  }
+	.card__quote--highlighted {
+		font-size: calc(var(--font-size-3) * 1.15);
+		font-weight: var(--font-weight-6);
+		line-height: var(--font-lineheight-1);
+	}
 }
