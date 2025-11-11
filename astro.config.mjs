@@ -71,6 +71,12 @@ export default defineConfig({
 				cssVariable: "--rubik",
 				weights: [300, 400, 500],
 			},
+			{
+				provider: fontProviders.google(),
+				name: "Space Mono",
+				cssVariable: "--space-mono",
+				weights: [700],
+			},
 		],
 	},
 });

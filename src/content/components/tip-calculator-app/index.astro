@@ -1,0 +1,113 @@
+---
+import DollarIcon from "./images/icon-dollar.svg";
+import PersonIcon from "./images/icon-person.svg";
+import Logo from "./images/logo.svg";
+import "./calculator.css";
+---
+
+<article class="calculator">
+  <Logo class="calculator__logo" />
+  <form class="calculator__form">
+    <div class="calculator__entry">
+      <div class="calculator__input-group">
+        <label for="bill-total" class="calculator__input-label">Bill</label>
+        <span class="calculator__input-error" aria-live="polite"></span>
+        <div class="calculator__input-container">
+          <DollarIcon class="calculator__icon" />
+          <input
+            type="number"
+            class="calculator__input"
+            placeholder="0"
+            step="0.01"
+            id="bill-total"
+          />
+        </div>
+      </div>
+      <div class="calculator__tips-container">
+        <p class="calculator__input-label">Select Tip %</p>
+        <span class="calculator__input-error" aria-live="polite"></span>
+        <div class="calculator__input-group">
+          <label for="tip-5" class="calculator__tip-button">5%</label>
+          <input
+            type="radio"
+            value="5"
+            id="tip-5"
+            class="calculator__tip-radio"
+          />
+        </div>
+        <div class="calculator__input-group">
+          <label for="tip-10" class="calculator__tip-button">10%</label>
+          <input
+            type="radio"
+            value="10"
+            id="tip-10"
+            class="calculator__tip-radio"
+          />
+        </div>
+        <div class="calculator__input-group">
+          <label for="tip-15" class="calculator__tip-button">15%</label>
+          <input
+            type="radio"
+            value="15"
+            id="tip-15"
+            class="calculator__tip-radio"
+          />
+        </div>
+        <div class="calculator__input-group">
+          <label for="tip-25" class="calculator__tip-button">25%</label>
+          <input
+            type="radio"
+            value="25"
+            id="tip-25"
+            class="calculator__tip-radio"
+          />
+        </div>
+        <div class="calculator__input-group">
+          <label for="tip-50" class="calculator__tip-button">50%</label>
+          <input
+            type="radio"
+            value="50"
+            id="tip-50"
+            class="calculator__tip-radio"
+          />
+        </div>
+        <div class="calculator__input-group">
+          <input
+            type="number"
+            placeholder="Custom"
+            class="calculator__input"
+            id="tip-custom"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="calculator__input-group">
+      <label for="num-people" class="calculator__input-label"
+        >Number of people</label
+      >
+      <span class="calculator__input-error" aria-live="polite"></span>
+      <div class="calculator__input-container">
+        <PersonIcon class="calculator__icon" />
+        <input
+          type="number"
+          class="calculator__input"
+          id="num-people"
+          placeholder="0"
+        />
+      </div>
+    </div>
+    <div class="calculator__output">
+      <div class="calculator__output-group">
+        <p class="calculator__output-label">Tip Amount</p>
+        <p class="calculator__output-sublabel">/ person</p>
+        <p class="calculator__output-value">$0.00</p>
+      </div>
+      <div class="calculator__output-group">
+        <p class="calculator__output-label">Total</p>
+        <p class="calculator__output-sublabel">/ person</p>
+        <p class="calculator__output-value">$0.00</p>
+      </div>
+      <button type="reset" class="calculator__reset-btn">Reset</button>
+    </div>
+  </form>
+</article>
