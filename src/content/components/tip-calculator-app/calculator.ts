@@ -3,6 +3,10 @@ import {
 	type MessageByFieldType,
 	validateField,
 } from "@utils/form";
+import {
+	calculateBill as calculateBillPure,
+	formatCurrency,
+} from "./calculator-logic.ts";
 
 const billInput = document.getElementById("bill-total") as HTMLInputElement;
 const tipInput = document.getElementById("tip-custom") as HTMLInputElement;
@@ -39,22 +43,20 @@ const uncheckRadios = (field: HTMLInputElement) => {
 };
 
 const calculateBill = () => {
-	if (total > 0 && numPeople > 0) {
-		const tipAmountPerPerson = (total * tip) / 100 / numPeople;
-		const totalPerPerson = (total * (1 + tip / 100)) / numPeople;
+	const { tipAmountPerPerson, totalPerPerson } = calculateBillPure(
+		total,
+		tip,
+		numPeople,
+	);
 
-		tipPerPersonOutput.textContent = `$${tipAmountPerPerson.toFixed(2)}`;
-		totalPerPersonOutput.textContent = `$${totalPerPerson.toFixed(2)}`;
-		resetButton.removeAttribute("disabled");
+	tipPerPersonOutput.textContent = formatCurrency(tipAmountPerPerson);
+	totalPerPersonOutput.textContent = formatCurrency(totalPerPerson);
+
+	if (tipAmountPerPerson === 0 && totalPerPerson === 0) {
+		resetButton.setAttribute("disabled", "");
 	} else {
-		resetOutput();
+		resetButton.removeAttribute("disabled");
 	}
-};
-
-const resetOutput = () => {
-	tipPerPersonOutput.textContent = `$0.00`;
-	totalPerPersonOutput.textContent = `$0.00`;
-	resetButton.setAttribute("disabled", "");
 };
 
 const setInputToVar = (field: HTMLInputElement): number => {
@@ -101,5 +103,5 @@ resetButton.addEventListener("click", (e) => {
 	total = 0;
 	tip = 0;
 	numPeople = 0;
-	resetOutput();
+	calculateBill();
 });
