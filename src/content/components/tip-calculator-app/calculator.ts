@@ -24,6 +24,8 @@ const fieldErrors: MessageByFieldType = {
 	number: {
 		badInput: "Must be a number",
 		valueMissing: "Must be a number",
+		rangeUnderflow: "Must be over 0",
+		stepMismatch: "Must be an integer",
 	},
 };
 
