@@ -1,6 +1,6 @@
 ---
 title: Tip Calculator App
-image: ./preview.jpg
+image: ./preview.png
 ---
 
 # Frontend Mentor - Tip calculator app solution
@@ -33,7 +33,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./preview.jpg)
+![Preview of the project](./preview.png)
 
 ### Links
 
@@ -48,63 +48,118 @@ Users should be able to:
 
 - Semantic HTML5 markup
 - CSS custom properties
-- CSS Grid
+- CSS Grid & Container Queries
 - Mobile-first workflow
-- BEM methodology
 - [Astro](https://astro.build/) - Web Framework
-- CSS-only form validation and interactivity
+- TypeScript for interactivity and validation
 
 ### What I learned
 
 This project was an excellent opportunity to practice building an interactive
-calculator using semantic HTML forms and CSS-only validation patterns.
+calculator with proper form validation, state management, and accessible error
+handling.
 
-#### Form-Based Calculator Architecture
+#### Form Validation with TypeScript
 
-The calculator is built entirely with native HTML form elements, leveraging the
-browser's built-in form capabilities for state management and validation:
+The calculator uses the browser's native Constraint Validation API with custom
+error messages and accessible error display:
 
-```html
-<form class="calc">
-  <input type="number" name="bill" required />
-  <input type="radio" name="tip" value="15" />
-  <input type="number" name="people" required />
-</form>
+```typescript
+const validateField = (field: HTMLInputElement): boolean => {
+  if (!field.validity.valid) {
+    const message = getCustomErrorMessage(field, fieldErrors);
+    showFieldError(field, message);
+    return false;
+  }
+  clearFieldError(field);
+  return true;
+};
 ```
 
 This approach provides:
 
-- **Native validation** - Browser-level input validation and error handling
-- **Keyboard accessibility** - Tab navigation and arrow key support
-- **Screen reader support** - Proper form semantics and labels
-- **No JavaScript required** - Pure HTML/CSS implementation
+- **Native validation** - Leverages browser's built-in validation
+- **Custom error messages** - User-friendly validation feedback
+- **ARIA attributes** - `aria-invalid` and `aria-describedby` for screen readers
+- **Real-time feedback** - Validates on input for immediate user feedback
 
-#### CSS Grid for Calculator Layout
+#### Interactive Tip Selection
 
-The calculator uses CSS Grid to create a responsive two-column layout that
-adapts seamlessly from mobile to desktop:
+The calculator handles two input methods for tip selection (preset percentages
+and custom input) with automatic mutual exclusion:
+
+```typescript
+// Clear custom input when radio selected
+const tipRadios = document.querySelectorAll<HTMLInputElement>(".tip-radio");
+tipRadios.forEach((radio) => {
+ radio.addEventListener("change", () => {
+  if (radio.checked) {
+   tipInput.value = "";
+   clearFieldError(tipInput, ".input-group", ".input-error");
+   tip = Number(radio.value);
+   calculateBill();
+  }
+ });
+});
+
+// Uncheck radios when typing in custom input
+const uncheckRadios = (field: HTMLInputElement) => {
+ const fieldset = field.closest(".input-group") as HTMLFieldSetElement;
+ if (!fieldset) return;
+
+ fieldset.querySelectorAll<HTMLInputElement>(".tip-radio").forEach((radio) => {
+  radio.checked = false;
+ });
+};
+```
+
+#### State Management & Real-time Calculation
+
+The calculator maintains state across three input values and updates results in
+real-time:
+
+```typescript
+let total = 0,
+  tip = 0,
+  numPeople = 0;
+
+const calculateBill = (): void => {
+  if (total > 0 && numPeople > 0) {
+    const tipAmountPerPerson = (total * tip) / 100 / numPeople;
+    const totalPerPerson = total * (1 + tip / 100) / numPeople;
+
+    tipPerPersonOutput.textContent = `$${tipAmountPerPerson.toFixed(2)}`;
+    totalPerPersonOutput.textContent = `$${totalPerPerson.toFixed(2)}`;
+  }
+};
+```
+
+#### Container Queries for Responsive Layout
+
+Used CSS Container Queries instead of media queries for truly component-based
+responsive design:
 
 ```css
-.calc {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--size-4);
+.calculator {
+  container-type: inline-size;
 }
 
-@media (min-width: 768px) {
-  .calc {
-    grid-template-columns: 1fr 1fr;
+@container (inline-size > 40rem) {
+  .tips-container {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 ```
 
 Key learnings:
 
-- Semantic HTML forms for interactive calculations
-- CSS Grid for responsive calculator layouts
-- BEM naming for form component organization
-- Mobile-first responsive design
-- CSS custom properties for theming
+- Form validation with Constraint Validation API
+- Reusable validation utilities with TypeScript
+- Accessible error handling with ARIA
+- Managing interactive form state
+- Real-time calculation updates
+- Container queries for component-scoped responsive design
+- CSS logical properties (inline-size, block-size)
 
 ## Author
 
