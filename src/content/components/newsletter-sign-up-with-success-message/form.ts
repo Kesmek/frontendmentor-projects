@@ -1,129 +1,17 @@
+import {
+	clearFieldError,
+	type MessageByFieldType,
+	validateField,
+} from "@utils/form";
+
 const form = document.getElementById("newsletter__form") as HTMLFormElement;
 
-// Custom error messages for each validity state
-type ErrorMessages = {
-	valueMissing: string;
-	typeMismatch: string;
-	patternMismatch: string;
-	tooShort: string;
-	tooLong: string;
-	rangeUnderflow: string;
-	rangeOverflow: string;
-	stepMismatch: string;
-	badInput: string;
-};
-
-// Default error messages
-const defaultMessages: ErrorMessages = {
-	valueMissing: "This field is required",
-	typeMismatch: "Value is invalid",
-	patternMismatch: "The text does not match the pattern",
-	tooShort: "This text is too short",
-	tooLong: "This text is too long",
-	rangeOverflow: "Value is not within required range",
-	rangeUnderflow: "Value is not within required range",
-	stepMismatch: "Value does not match the step constraint",
-	badInput: "Invalid input",
-};
-
 // Field-specific custom messages
-const fieldMessages: Record<string, Partial<ErrorMessages>> = {
+const fieldMessages: MessageByFieldType = {
 	email: {
 		valueMissing: "Email address is required",
 		typeMismatch: "Valid email required",
 	},
-};
-
-/**
- * Get custom error message for a field based on its validity state
- */
-const getCustomErrorMessage = (field: HTMLInputElement): string => {
-	const validity = field.validity;
-	const fieldName = field.name;
-	const messages = fieldMessages[fieldName] || {};
-
-	// Check each validity state and return appropriate message
-	if (validity.valueMissing) {
-		return messages.valueMissing || defaultMessages.valueMissing;
-	}
-	if (validity.typeMismatch) {
-		return messages.typeMismatch || defaultMessages.typeMismatch;
-	}
-	if (validity.patternMismatch) {
-		return messages.patternMismatch || defaultMessages.patternMismatch;
-	}
-	if (validity.tooShort) {
-		return messages.tooShort || defaultMessages.tooShort;
-	}
-	if (validity.tooLong) {
-		return messages.tooLong || defaultMessages.tooLong;
-	}
-	if (validity.rangeUnderflow) {
-		return messages.rangeUnderflow || defaultMessages.rangeUnderflow;
-	}
-	if (validity.rangeOverflow) {
-		return messages.rangeOverflow || defaultMessages.rangeOverflow;
-	}
-	if (validity.stepMismatch) {
-		return messages.stepMismatch || defaultMessages.stepMismatch;
-	}
-	if (validity.badInput) {
-		return messages.badInput || defaultMessages.badInput;
-	}
-
-	return "";
-};
-
-/**
- * Show error message for a field
- */
-const showFieldError = (field: HTMLInputElement, message: string): void => {
-	const formGroup = field.parentElement;
-	if (!formGroup) return;
-
-	const errorElement = formGroup.querySelector(
-		".newsletter__form-error",
-	) as HTMLElement;
-	if (!errorElement) return;
-
-	errorElement.textContent = message;
-	field.setAttribute("aria-invalid", "true");
-
-	if (errorElement.id) {
-		field.setAttribute("aria-describedby", errorElement.id);
-	}
-};
-
-/**
- * Clear error message for a field
- */
-const clearFieldError = (field: HTMLInputElement): void => {
-	const formGroup = field.parentElement;
-	if (!formGroup) return;
-
-	const errorElement = formGroup.querySelector(
-		".newsletter__form-error",
-	) as HTMLElement;
-	if (!errorElement) return;
-
-	errorElement.textContent = "";
-	field.removeAttribute("aria-invalid");
-	field.removeAttribute("aria-describedby");
-};
-
-/**
- * Validate a single field using native validation
- */
-const validateField = (field: HTMLInputElement): boolean => {
-	// Use browser's native validation
-	if (!field.validity.valid) {
-		const message = getCustomErrorMessage(field);
-		showFieldError(field, message);
-		return false;
-	}
-
-	clearFieldError(field);
-	return true;
 };
 
 /**
@@ -138,7 +26,12 @@ const validateAllFields = (): boolean => {
 	let firstInvalidField: HTMLInputElement | null = null;
 
 	for (const field of fields) {
-		const fieldValid = validateField(field);
+		const fieldValid = validateField(
+			field,
+			fieldMessages,
+			".newsletter__form-group",
+			"newsletter__form-error",
+		);
 		if (!fieldValid) {
 			isValid = false;
 			if (!firstInvalidField) {
@@ -163,7 +56,7 @@ form.addEventListener("input", (event) => {
 		field.tagName === "TEXTAREA" ||
 		field.tagName === "SELECT"
 	) {
-		clearFieldError(field);
+		clearFieldError(field, ".newsletter__form-group", "newsletter__form-error");
 	}
 });
 
@@ -179,7 +72,12 @@ form.addEventListener(
 		) {
 			// Only validate if field has been touched
 			if (field.value) {
-				validateField(field);
+				validateField(
+					field,
+					fieldMessages,
+					".newsletter__form-group",
+					"newsletter__form-error",
+				);
 			}
 		}
 	},

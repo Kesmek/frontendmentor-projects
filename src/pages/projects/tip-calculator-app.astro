@@ -1,0 +1,13 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import TipCalculatorComponent from "@components/tip-calculator-app/index.astro";
+import { Font } from "astro:assets";
+---
+
+<BaseLayout
+  title="Frontend Mentor | Tip calculator app"
+  favicon="/frontendmentor-favicon.svg"
+>
+  <Font slot="head" cssVariable="--space-mono" preload />
+  <TipCalculatorComponent />
+</BaseLayout>
