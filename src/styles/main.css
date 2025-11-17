@@ -17,6 +17,11 @@
 		display: grid;
 		container-type: inline-size;
 	}
+
+	button:disabled {
+		opacity: 0.25;
+		cursor: unset;
+	}
 }
 
 /* Homepage Styles */

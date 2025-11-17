@@ -18,13 +18,6 @@ and runtime.
 - `bun build` - Build the project for production
 - `bun preview` - Preview the production build
 
-### Code Quality
-
-- Stylelint is configured for CSS linting with BEM methodology
-- Prettier is configured for Astro files
-- Run stylelint: `bunx stylelint "**/*.{css,astro}"`
-- Run prettier: `bunx prettier --write .`
-
 ## Architecture
 
 ### Project Structure
@@ -33,9 +26,9 @@ and runtime.
 src/
 ├── components/          # Challenge components (one directory per challenge)
 │   └── {challenge-name}/
-│       ├── index.astro  # Main component file
-│       ├── *.css        # Component-specific styles
-│       ├── assets/      # Challenge assets (images, fonts, etc.)
+│       ├── index.astro  # Main component file with scoped styles
+│       ├── *.ts         # Component logic (if needed)
+│       ├── images/      # Component-specific images
 │       └── README.md    # Challenge requirements/notes
 ├── layouts/
 │   └── BaseLayout.astro # Shared layout with common HTML structure
@@ -53,9 +46,9 @@ src/
 
 1. Create a new directory in `src/components/{challenge-name}/`
 2. Add component files:
-   - `index.astro` - Main component with challenge markup
-   - `{name}.css` - Component-specific styles (use BEM methodology)
-   - `assets/` - Directory for challenge assets
+   - `index.astro` - Main component with markup and scoped `<style>` tag
+   - `{name}.ts` - Component logic (TypeScript, if needed)
+   - `images/` - Directory for challenge images/assets
 3. Create a page route at `src/pages/projects/{challenge-name}.astro` that
    imports the component
 4. Add the challenge to the homepage gallery in `src/pages/index.astro`
@@ -63,14 +56,19 @@ src/
 
 ### CSS Architecture
 
+- **Scoped Component Styles**: Use Astro's scoped `<style>` tags within
+  component files for automatic style scoping
 - **CSS Cascade Layers** (in order): `reset`, `base`, `tokens`, `components`,
   `utilities`
-- **BEM Methodology**: All component styles follow BEM naming (block\_\_element,
-  block--modifier)
+- **Modern CSS Features**:
+  - Native CSS nesting for component organization (no preprocessor needed)
+  - Container queries (`@container`) for component-level responsive design
+  - Logical properties (`inline-size`, `block-size`) instead of physical
+    (`width`, `height`)
+  - Relative color syntax with `oklch(from var(...) ...)`
 - **CSS Custom Properties**: Design tokens defined in `src/styles/tokens.css`
-- **Logical Properties**: Use logical properties (inline-size, block-size)
-  instead of physical (width, height)
-- Stylelint enforces BEM patterns via `stylelint-selector-bem-pattern`
+- **Naming Convention**: Simple, semantic class names organized with CSS nesting
+  (no BEM methodology)
 
 ### Astro-Specific Features
 
@@ -104,12 +102,19 @@ import { Font } from "astro:assets";
 </BaseLayout>
 ```
 
-Component styles are co-located with the component and imported directly in the
-`.astro` file.
+Component markup, styles, and logic are co-located in the component directory.
+Styles use scoped `<style>` tags within the `.astro` file for automatic scoping.
+Component logic uses separate `.ts` files when needed.
 
 ## Development Workflow
 
-- Mobile-first approach: Design for mobile first, then add responsive styles
-- BEM naming: All CSS classes must follow BEM methodology
-- Browser compatibility: Don't assume Chromium-specific features
-- The project uses Cloudflare Pages for deployment (wrangler configured)
+- **Mobile-first approach**: Design for mobile first, then add responsive styles
+  using container queries
+- **Accessibility-first**: Use semantic HTML, proper ARIA labels, form
+  validation, and focus states
+- **Modern CSS**: Leverage native nesting, container queries, cascade layers, and
+  logical properties
+- **TypeScript**: Use `.ts` files for component logic when needed
+- **Browser compatibility**: Test across browsers; avoid cutting-edge features
+  without fallbacks (e.g., CSS `@scope` not yet supported in Firefox)
+- **Deployment**: Cloudflare Pages (wrangler configured)
