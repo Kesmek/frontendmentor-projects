@@ -14,14 +14,8 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.3.4",
-		"json-parse-better-errors": "^1.0.2",
 		"open-props": "^1.7.16",
 		"oxfmt": "^0.7.0",
-		"postcss-html": "^1.8.0",
-		"stylelint": "^16.24.0",
-		"stylelint-config-html": "^1.1.0",
-		"stylelint-config-standard": "^39.0.0",
-		"stylelint-selector-bem-pattern": "^4.0.1",
 		"wrangler": "^4.39.0"
 	}
 }
