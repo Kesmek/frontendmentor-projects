@@ -1,0 +1,200 @@
+---
+import Star from "./images/icon-star.svg";
+import ThankYou from "./images/illustration-thank-you.svg";
+---
+
+<form class="rating-component" novalidate id="ratings-form">
+  <Star class="star" />
+  <h2 class="heading">How did we do?</h2>
+  <p class="text">
+    Please let us know how we did with your support request. All feedback is
+    appreciated to help us improve our offering!
+  </p>
+  <fieldset class="ratings">
+    <legend class="visually-hidden">Select rating</legend>
+    <span class="ratings-error" id="ratings-error"></span>
+    <label for="radio-1" class="radio-label">1</label>
+    <input
+      type="radio"
+      name="rating"
+      value="1"
+      id="radio-1"
+      class="radio"
+      required
+    />
+    <label for="radio-2" class="radio-label">2</label>
+    <input
+      type="radio"
+      name="rating"
+      value="2"
+      id="radio-2"
+      class="radio"
+      required
+    />
+    <label for="radio-3" class="radio-label">3</label>
+    <input
+      type="radio"
+      name="rating"
+      value="3"
+      id="radio-3"
+      class="radio"
+      required
+    />
+    <label for="radio-4" class="radio-label">4</label>
+    <input
+      type="radio"
+      name="rating"
+      value="4"
+      id="radio-4"
+      class="radio"
+      required
+    />
+    <label for="radio-5" class="radio-label">5</label>
+    <input
+      type="radio"
+      name="rating"
+      value="5"
+      id="radio-5"
+      class="radio"
+      required
+    />
+  </fieldset>
+  <button type="submit" class="submit-btn">Submit</button>
+  <div class="result">
+    <ThankYou class="image" />
+    <p class="text selected-text">
+      You selected <span class="selected-span" id="selected-span"></span> out of
+      5
+    </p>
+    <h2 class="heading">Thank you!</h2>
+    <p class="text">
+      We appreciate you taking the time to give a rating. If you ever need more
+      support, don’t hesitate to get in touch!
+    </p>
+  </div>
+</form>
+<script src="./form.ts"></script>
+
+<style>
+  @layer components {
+    :root {
+      --rating-orange-500: hsl(25deg 97% 53%);
+      --rating-grey-500: hsl(217deg 12% 63%);
+      --rating-grey-900: hsl(213deg 19% 18%);
+      --rating-grey-950: hsl(216deg 12% 8%);
+      --color-background: var(--rating-grey-950);
+      --outline: var(--border-size-2) solid var(--rating-orange-500);
+    }
+
+    .rating-component {
+      font-size: 15px;
+      font-family: var(--overpass);
+      background: linear-gradient(
+        to top right,
+        oklch(from var(--rating-grey-900) calc(l * 0.8) c h),
+        var(--rating-grey-900)
+      );
+      padding: var(--size-7);
+      color: var(--color-white);
+      display: grid;
+      gap: var(--size-6);
+      margin: var(--size-5);
+      border-radius: var(--radius-3);
+      max-inline-size: calc(var(--size-14) * 1.25);
+    }
+
+    .text {
+      color: var(--rating-grey-500);
+    }
+
+    .star {
+      box-sizing: content-box;
+      padding: calc(var(--size-2) * 1.75);
+      border-radius: var(--radius-round);
+      background: var(--rating-grey-900);
+    }
+
+    .ratings {
+      border: none;
+      display: flex;
+      justify-content: space-between;
+      color: var(--rating-grey-500);
+      padding: 0;
+      position: relative;
+
+      &:has(input:user-invalid) {
+        outline: var(--outline);
+        outline-color: var(--color-red-500);
+        outline-offset: var(--size-1);
+      }
+    }
+
+    .ratings-error {
+      color: var(--color-red-500);
+      position: absolute;
+      top: calc(-1 * var(--size-4));
+    }
+
+    .radio {
+      inline-size: 0;
+      position: absolute;
+    }
+
+    .radio-label {
+      inline-size: var(--size-8);
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius-round);
+      background: var(--rating-grey-900);
+      font-weight: var(--font-weight-7);
+      transition-property: color, background;
+      transition-duration: var(--duration-quick-1);
+
+      &:hover {
+        cursor: pointer;
+        background: var(--rating-orange-500);
+        color: var(--rating-grey-950);
+      }
+
+      &:active,
+      &:has(+ .radio:checked) {
+        background: var(--color-white);
+        color: var(--rating-grey-950);
+      }
+
+      &:has(+ .radio:focus-visible) {
+        outline: var(--outline);
+        outline-offset: var(--size-1);
+      }
+    }
+
+    .submit-btn {
+      padding: var(--size-4);
+      border-radius: var(--radius-round);
+      text-transform: uppercase;
+      font-weight: var(--font-weight-7);
+      letter-spacing: 0.1em;
+      background: var(--rating-orange-500);
+      transition-property: color, background;
+      transition-duration: var(--duration-quick-1);
+      border: none;
+
+      &:hover,
+      &:active {
+        cursor: pointer;
+        background: var(--color-white);
+      }
+
+      &:focus-visible {
+        outline: var(--outline);
+        outline-color: var(--color-white);
+        outline-offset: var(--size-1);
+      }
+    }
+
+    .result {
+      display: none;
+    }
+  }
+</style>

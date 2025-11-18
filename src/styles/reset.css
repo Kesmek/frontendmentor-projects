@@ -11,6 +11,7 @@
 	/* 2. Remove default margin */
 	* {
 		margin: 0;
+		padding: 0;
 
 		/* 3. Add accessible line-height */
 		line-height: calc(1em + 0.5rem);

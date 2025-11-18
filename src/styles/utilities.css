@@ -1,0 +1,8 @@
+@layer utilities {
+	.visually-hidden {
+		inline-size: 0;
+		position: absolute;
+		pointer-events: none;
+		opacity: 0;
+	}
+}

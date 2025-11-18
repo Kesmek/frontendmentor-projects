@@ -34,7 +34,7 @@ type MessageByFieldType = Partial<Record<InputType, Partial<ErrorMessages>>>;
  * Get custom error message for a field based on its validity state
  */
 const getCustomErrorMessage = (
-	field: HTMLInputElement,
+	field: HTMLInputElement | HTMLFieldSetElement,
 	customMessageByField?: MessageByFieldType,
 ): string => {
 	const validity = field.validity;
@@ -68,7 +68,7 @@ const getCustomErrorMessage = (
  * Show error message for a field
  */
 const showFieldError = (
-	field: HTMLInputElement,
+	field: HTMLInputElement | HTMLFieldSetElement,
 	message: string,
 	groupSelector: string,
 	errorSelector: string,
