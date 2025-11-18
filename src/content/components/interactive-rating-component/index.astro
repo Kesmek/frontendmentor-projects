@@ -4,63 +4,65 @@ import ThankYou from "./images/illustration-thank-you.svg";
 ---
 
 <form class="rating-component" novalidate id="ratings-form">
-  <Star class="star" />
-  <h2 class="heading">How did we do?</h2>
-  <p class="text">
-    Please let us know how we did with your support request. All feedback is
-    appreciated to help us improve our offering!
-  </p>
-  <fieldset class="ratings">
-    <legend class="visually-hidden">Select rating</legend>
-    <span class="ratings-error" id="ratings-error"></span>
-    <label for="radio-1" class="radio-label">1</label>
-    <input
-      type="radio"
-      name="rating"
-      value="1"
-      id="radio-1"
-      class="radio"
-      required
-    />
-    <label for="radio-2" class="radio-label">2</label>
-    <input
-      type="radio"
-      name="rating"
-      value="2"
-      id="radio-2"
-      class="radio"
-      required
-    />
-    <label for="radio-3" class="radio-label">3</label>
-    <input
-      type="radio"
-      name="rating"
-      value="3"
-      id="radio-3"
-      class="radio"
-      required
-    />
-    <label for="radio-4" class="radio-label">4</label>
-    <input
-      type="radio"
-      name="rating"
-      value="4"
-      id="radio-4"
-      class="radio"
-      required
-    />
-    <label for="radio-5" class="radio-label">5</label>
-    <input
-      type="radio"
-      name="rating"
-      value="5"
-      id="radio-5"
-      class="radio"
-      required
-    />
-  </fieldset>
-  <button type="submit" class="submit-btn">Submit</button>
-  <div class="result">
+  <div class="card" id="entry">
+    <Star class="star" />
+    <h2 class="heading">How did we do?</h2>
+    <p class="text">
+      Please let us know how we did with your support request. All feedback is
+      appreciated to help us improve our offering!
+    </p>
+    <fieldset class="ratings">
+      <legend class="visually-hidden">Select rating</legend>
+      <span class="ratings-error" id="ratings-error"></span>
+      <label for="radio-1" class="radio-label">1</label>
+      <input
+        type="radio"
+        name="rating"
+        value="1"
+        id="radio-1"
+        class="radio"
+        required
+      />
+      <label for="radio-2" class="radio-label">2</label>
+      <input
+        type="radio"
+        name="rating"
+        value="2"
+        id="radio-2"
+        class="radio"
+        required
+      />
+      <label for="radio-3" class="radio-label">3</label>
+      <input
+        type="radio"
+        name="rating"
+        value="3"
+        id="radio-3"
+        class="radio"
+        required
+      />
+      <label for="radio-4" class="radio-label">4</label>
+      <input
+        type="radio"
+        name="rating"
+        value="4"
+        id="radio-4"
+        class="radio"
+        required
+      />
+      <label for="radio-5" class="radio-label">5</label>
+      <input
+        type="radio"
+        name="rating"
+        value="5"
+        id="radio-5"
+        class="radio"
+        required
+      />
+    </fieldset>
+    <button type="submit" class="submit-btn">Submit</button>
+  </div>
+  <div class="card result" id="result" hidden>
     <ThankYou class="image" />
     <p class="text selected-text">
       You selected <span class="selected-span" id="selected-span"></span> out of
@@ -86,7 +88,7 @@ import ThankYou from "./images/illustration-thank-you.svg";
       --outline: var(--border-size-2) solid var(--rating-orange-500);
     }
 
-    .rating-component {
+    .card {
       font-size: 15px;
       font-family: var(--overpass);
       background: linear-gradient(
@@ -101,6 +103,10 @@ import ThankYou from "./images/illustration-thank-you.svg";
       margin: var(--size-5);
       border-radius: var(--radius-3);
       max-inline-size: calc(var(--size-14) * 1.25);
+    }
+
+    .entry {
+      display: contents;
     }
 
     .text {
@@ -195,6 +201,7 @@ import ThankYou from "./images/illustration-thank-you.svg";
 
     .result {
       display: none;
+      justify-items: center;
     }
   }
 </style>

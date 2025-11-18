@@ -5,6 +5,18 @@ const errorMessage = document.getElementById(
 const ratingInputs = document.querySelectorAll<HTMLInputElement>(
 	'input[name="rating"]',
 );
+const resultDiv = document.getElementById("result");
+const entryDiv = document.getElementById("entry");
+
+const showResult = () => {
+	if (resultDiv && entryDiv) {
+		resultDiv.hidden = false;
+		resultDiv.style.display = "grid";
+		entryDiv.hidden = true;
+		entryDiv.style.display = "none";
+		console.log("showing result");
+	}
+};
 
 form?.addEventListener("submit", (ev) => {
 	ev.preventDefault();
@@ -21,6 +33,8 @@ form?.addEventListener("submit", (ev) => {
 
 	// Valid - clear error and proceed
 	errorMessage.textContent = "";
+
+	showResult();
 });
 
 // Clear error when user selects any radio
