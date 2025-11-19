@@ -7,14 +7,14 @@ const ratingInputs = document.querySelectorAll<HTMLInputElement>(
 );
 const resultDiv = document.getElementById("result");
 const entryDiv = document.getElementById("entry");
+const selectedSpan = document.getElementById("selected-span");
 
-const showResult = () => {
-	if (resultDiv && entryDiv) {
-		resultDiv.hidden = false;
-		resultDiv.style.display = "grid";
+const showResult = (result: string) => {
+	if (resultDiv && entryDiv && selectedSpan) {
+		selectedSpan.textContent = result;
 		entryDiv.hidden = true;
-		entryDiv.style.display = "none";
-		console.log("showing result");
+		resultDiv.hidden = false;
+		resultDiv.focus();
 	}
 };
 
@@ -34,7 +34,7 @@ form?.addEventListener("submit", (ev) => {
 	// Valid - clear error and proceed
 	errorMessage.textContent = "";
 
-	showResult();
+	showResult(selectedRating.toString());
 });
 
 // Clear error when user selects any radio

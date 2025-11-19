@@ -1,6 +1,6 @@
 ---
 title: Interactive Rating Component
-image: ./preview.jpg
+image: ./preview.png
 ---
 
 # Frontend Mentor - Interactive rating component solution
@@ -33,7 +33,7 @@ Users should be able to:
 
 ### Screenshot
 
-![Preview of the project](./preview.jpg)
+![Preview of the project](./preview.png)
 
 ### Links
 
@@ -46,11 +46,34 @@ Users should be able to:
 
 ### Built with
 
-- Semantic HTML5 markup
-- CSS custom properties
+- Semantic HTML5 markup (form, fieldset, legend)
+- CSS custom properties and design tokens
+- CSS nesting for component organization
+- CSS transitions with `allow-discrete` for display property animations
+- `@starting-style` for entry animations
+- Logical properties (inline-size, aspect-ratio)
+- TypeScript for form validation and state management
 - Mobile-first workflow
 - [Astro](https://astro.build/) - Web Framework
-- Native `<dialog>` element for modal state
+
+### What I learned
+
+The form validation uses native HTML5 validation with custom error messaging,
+providing immediate feedback when users attempt to submit without selecting a
+rating. The visual design uses relative color syntax
+(`oklch(from var(...) ...)`) for generating color variations directly in CSS.
+
+### Implementation notes
+
+- Radio buttons are visually styled as circular buttons while maintaining
+  semantic form structure
+- Focus states use `:focus-visible` to show keyboard navigation without
+  interfering with mouse interactions
+- Error validation triggers on submit and clears when user selects a rating
+- State transitions use the `hidden` attribute toggled via JavaScript, with CSS
+  handling all visual transitions
+- Component uses scoped Astro styles with CSS cascade layers for predictable
+  specificity
 
 ## Author
 
