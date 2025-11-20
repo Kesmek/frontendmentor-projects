@@ -1,0 +1,13 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import InteractiveRatingComponent from "@components/interactive-rating-component/index.astro";
+import { Font } from "astro:assets";
+---
+
+<BaseLayout
+  title="Frontend Mentor | Interactive rating component"
+  favicon="/frontendmentor-favicon.svg"
+>
+  <Font slot="head" cssVariable="--overpass" preload />
+  <InteractiveRatingComponent />
+</BaseLayout>

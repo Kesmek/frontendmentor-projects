@@ -77,6 +77,12 @@ export default defineConfig({
 				cssVariable: "--space-mono",
 				weights: [700],
 			},
+			{
+				provider: fontProviders.google(),
+				name: "Overpass",
+				cssVariable: "--overpass",
+				weights: [400, 700],
+			},
 		],
 	},
 });
