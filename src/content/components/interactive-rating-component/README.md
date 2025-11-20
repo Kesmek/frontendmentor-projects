@@ -18,6 +18,12 @@ realistic projects.
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
+- [Review](#review)
+  - [What I'm most proud of](#what-im-most-proud-of)
+  - [What I would do differently](#what-i-would-do-differently)
+- [Challenges](#challenges-i-overcame)
+  - [What I'm most proud of](#what-im-most-proud-of)
+  - [What I would do differently](#what-i-would-do-differently)
 - [Author](#author)
 
 ## Overview
@@ -74,6 +80,58 @@ rating. The visual design uses relative color syntax
   handling all visual transitions
 - Component uses scoped Astro styles with CSS cascade layers for predictable
   specificity
+
+## Review
+
+### What I'm Most Proud Of
+
+- Accessibility-first approach: I implemented comprehensive accessibility
+  features including semantic HTML (form, fieldset, legend), proper ARIA
+  attributes (aria-describedby, aria-live, aria-hidden), focus management,
+  and keyboard navigation with :focus-visible. The component is fully usable
+   with screen readers and keyboard-only navigation.
+
+- Modern CSS techniques: I successfully used cutting-edge CSS features like
+  @starting-style for entry animations, transition-behavior: allow-discrete
+  for animating the display property, relative color syntax with oklch(from
+  var(...) ...), and advanced selectors like :has() and :user-invalid. The
+  styling is clean, maintainable, and leverages CSS cascade layers.
+
+- Form validation UX: The validation provides immediate, clear feedback with
+   custom error messages that appear on submit and clear automatically when
+  the user selects a rating. The error is properly announced to screen
+  readers via aria-live.
+
+### What I Would Do Differently
+
+- Radio button hiding technique: The visually-hidden radio buttons use
+  inline-size: 0 and position: absolute, which isn't
+  ideal. I'd use a more robust visually-hidden pattern with proper clipping
+  to ensure better cross-browser accessibility support.
+
+- CSS magic numbers: Some calculations like calc(var(--size-14) * 1.25) lack
+   context. I'd extract these into named custom properties (like
+  --card-max-width) to make the design intent clearer.
+
+### Challenges I overcame
+
+- Challenge: Submit Event Not Firing
+  - Initially thought it was a script loading or timing issue
+  - Root cause: HTML5's native form validation with the required attribute
+  was preventing the submit event from firing when no radio button was
+  selected
+  - Solution: Added the novalidate attribute to the form element to disable
+  native validation and allow custom JavaScript validation to run
+
+- Challenge: Validation Strategy
+  - Had to choose between native HTML5 validation (which provides
+  :user-invalid CSS pseudo-class) and custom JavaScript validation (which
+  offers better UX control)
+  - Native validation was blocking the ability to show custom error messages
+   in the desired location
+  - Solution: Opted for custom JavaScript validation with novalidate,
+  trading off the :user-invalid CSS feature for complete control over error
+  messaging and user feedback
 
 ## Author
 
