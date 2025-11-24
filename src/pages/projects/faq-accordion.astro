@@ -1,0 +1,13 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { Font } from "astro:assets";
+import FaqAccordionComponent from "@components/faq-accordion/index.astro";
+---
+
+<BaseLayout
+  title="Frontend Mentor | FAQ Accordion"
+  favicon="/frontendmentor-favicon.svg"
+>
+  <Font slot="head" cssVariable="--work-sans" preload />
+  <FaqAccordionComponent />
+</BaseLayout>

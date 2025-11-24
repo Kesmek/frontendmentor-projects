@@ -83,6 +83,12 @@ export default defineConfig({
 				cssVariable: "--overpass",
 				weights: [400, 700],
 			},
+			{
+				provider: fontProviders.google(),
+				name: "Work Sans",
+				cssVariable: "--work-sans",
+				weights: [400, 700],
+			},
 		],
 	},
 });
