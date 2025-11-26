@@ -1,0 +1,187 @@
+---
+import Star from "./assets/images/icon-star.svg";
+---
+
+<article class="faq">
+  <div class="content">
+    <div class="title">
+      <Star class="title-icon" />
+      <h2 class="title-text">FAQs</h2>
+    </div>
+    <div class="details-wrapper">
+      <details class="faq-details" name="faq">
+        <summary class="faq-summary">
+          <p>What is Frontend Mentor, and how will it help me?</p>
+          <div class="summary-icon"></div>
+        </summary>
+        <p>
+          Frontend Mentor offers realistic coding challenges to help developers
+          improve their frontend coding skills with projects in HTML, CSS, and
+          JavaScript. It's suitable for all levels and ideal for portfolio
+          building.
+        </p>
+      </details>
+      <details class="faq-details" name="faq">
+        <summary class="faq-summary">
+          <p>Is Frontend Mentor free?</p>
+          <div class="summary-icon"></div>
+        </summary>
+        <p>
+          Yes, Frontend Mentor offers both free and premium coding challenges,
+          with the free option providing access to a range of projects suitable
+          for all skill levels.
+        </p>
+      </details>
+      <details class="faq-details" name="faq">
+        <summary class="faq-summary">
+          <p>Can I use Frontend Mentor projects in my portfolio?</p>
+          <div class="summary-icon"></div>
+        </summary>
+        <p>
+          Yes, you can use projects completed on Frontend Mentor in your
+          portfolio. It's an excellent way to showcase your skills to potential
+          employers!
+        </p>
+      </details>
+      <details class="faq-details" name="faq">
+        <summary class="faq-summary">
+          <p>How can I get help if I'm stuck on a Frontend Mentor challenge?</p>
+          <div class="summary-icon"></div>
+        </summary>
+        <p>
+          The best place to get help is inside Frontend Mentor's Discord
+          community. There's a help channel where you can ask questions and seek
+          support from other community members.
+        </p>
+      </details>
+    </div>
+  </div>
+</article>
+<style>
+  @layer components {
+    :root {
+      --faq-purple-100: hsl(275deg 100% 97%);
+      --faq-purple-600: hsl(292deg 16% 49%);
+      --faq-purple-950: hsl(292deg 42% 14%);
+      --color-background: var(--faq-purple-100);
+    }
+
+    .faq {
+      font-size: 16px;
+      font-family: var(--work-sans);
+      color: var(--faq-purple-950);
+      inline-size: 100%;
+      block-size: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      background-color: var(--faq-purple-100);
+      background-size: 100% auto;
+      background-repeat: no-repeat;
+      background-image: url("/images/background-pattern-mobile.svg");
+
+      @container (width > 60rem) {
+        background-image: url("/images/background-pattern-desktop.svg");
+      }
+    }
+
+    .content {
+      background: var(--color-white);
+      border-radius: var(--radius-2);
+      margin-inline: var(--size-5);
+      padding: var(--size-5);
+      display: flex;
+      flex-direction: column;
+      gap: var(--size-3);
+      inline-size: 100%;
+      max-inline-size: var(--size-16);
+
+      @container (width > 50rem) {
+        border-radius: var(--radius-3);
+      }
+    }
+
+    .title {
+      font-size: var(--font-size-5);
+      display: flex;
+      align-items: center;
+      gap: var(--size-6);
+    }
+
+    .title-icon {
+      inline-size: var(--size-6);
+    }
+
+    .details-wrapper {
+      display: grid;
+    }
+
+    /* this is for the borders in between the details */
+    .faq-details + .faq-details {
+      border-color: var(--faq-purple-100);
+      border-width: var(--border-size-2);
+      border-top-style: solid;
+    }
+
+    .faq-details[open] .summary-icon {
+      --c: var(--faq-purple-950);
+
+      border-image: conic-gradient(var(--c) 0 0) 1 / calc(50% - 15px)
+        var(--plus-width);
+      rotate: 90deg;
+    }
+
+    .faq-summary {
+      display: flex;
+      gap: var(--size-8);
+      justify-content: space-between;
+      align-items: center;
+      padding-block: var(--size-5);
+      font-weight: var(--font-weight-7);
+      transition: color var(--duration-quick-2);
+
+      &:hover {
+        cursor: pointer;
+        color: oklch(0.58 0.27 311.26);
+      }
+    }
+
+    @property --c {
+      syntax: "<color>";
+      inherits: true;
+      initial-value: oklch(0.58 0.27 311.26);
+    }
+
+    .summary-icon {
+      --c: oklch(0.58 0.27 311.26);
+      --inset-amount: 7px;
+      --plus-width: calc(50% - (var(--inset-amount) / 10));
+      transition-property: --c;
+      transition-duration: var(--duration-moderate-2);
+
+      block-size: var(--size-5);
+      aspect-ratio: 1;
+      box-shadow: 0 0 0 var(--inset-amount) inset var(--c);
+      border-image: conic-gradient(var(--c) 0 0) 50% / var(--plus-width);
+      clip-path: circle(); /* remove this if you don't want a rounded shape */
+    }
+
+    ::details-content {
+      block-size: 0;
+      transition-property: block-size, content-visibility;
+      transition-behavior: allow-discrete;
+      transition-duration: var(--duration-moderate-2);
+      overflow: clip;
+      color: var(--faq-purple-600);
+    }
+
+    [open]::details-content {
+      inline-size: 100%;
+      block-size: auto;
+      padding-block-end: var(--size-3);
+      padding-inline: var(--size-1);
+    }
+  }
+</style>
